@@ -1,0 +1,884 @@
+@charset "utf-8";
+
+/* 전체 공통 내용
+--------------------------- */
+            * {
+                padding:0; margin:0;
+                font-family:"Noto Sans CJK KR Regular", "Roboto", "sans-serif";
+                font-size:16px;
+                box-sizing: border-box;
+            }
+
+            ol, ul {
+                list-style: none;
+            }
+
+            a, a:hover {
+                color:#000;
+                text-decoration:none;
+                cursor:pointer;
+            }
+
+            input, select{
+        		border: 1px solid rgb(165,165,165);
+        		opacity: 0.7;
+        		text-indent: 10px;
+    		}
+
+    		input:focus{
+        		outline: none;
+        		opacity: 1;
+    		}
+
+    		select:focus{
+        		outline:none;
+    		}
+
+            p { font-size:16px; line-height:30px;}
+            h1 { font-size:30px; font-weight: 700; }
+            h2 { font-size:24px; font-weight: 700; }
+            h3 { font-size:20px; font-weight: 700; }
+            h4 { font-size:18px; font-weight: 700; }
+
+            .clearfix {
+                content:'';
+                float:none;
+                display:block;
+                clear:both;
+            }
+            .text_hide {
+            	text-indent:-10000px;
+            }
+
+/* header
+--------------------------- */
+                position:fixed;
+                width:100%;
+                height:56px;
+                background-color:#cebea7;
+                transition: top 0.2s ease-in-out;
+                top:0;
+                z-index: 100;
+            }
+            .nav-up {
+                top:-100px;
+            }
+            .hd_icon {
+                width:80%;
+                margin:auto;
+                padding-top:15px;
+            }
+            #hd_logo_icon {
+                display: inline-block;
+                width:75px;
+                height:30px;
+                background-image:url(../img/laporte_clipping.png);
+                background-repeat: no-repeat;
+                background-size:590px 300px;
+                background-position:-328px -12px;
+            }
+            .hd_list li {
+                 display:inline-block;
+            }
+            .hd_list {
+                float:right;
+                margin-right:-15px;
+            }
+            #hd_mypage_icon {
+                display: inline-block;
+                width:30px;
+                height:24px;
+                background-image:url(../img/laporte_clipping.png);
+                background-repeat: no-repeat;
+                background-size:530px 290px;
+                background-position:-21px -15px;
+            }
+            #hd_wishlist_icon {
+                display: inline-block;
+                width:30px;
+                height:24px;
+                background-image:url(../img/laporte_clipping.png);
+                background-repeat: no-repeat;
+                background-size:530px 300px;
+                background-position:-20px -51px;
+            }
+            #hd_cart_icon {
+                display: inline-block;
+                width:34px;
+                height:24px;
+                background-image:url(../img/laporte_clipping.png);
+                background-repeat: no-repeat;
+                background-size:490px 300px;
+                background-position:-16px -88px;
+            }
+            #hd_menu_icon {
+                display: inline-block;
+                width:24px;
+                height:24px;
+                background-image:url(../img/laporte_clipping.png);
+                background-repeat: no-repeat;
+                background-size:540px 330px;
+                background-position:-23px -185px;
+                }
+
+    /* 메뉴 모달윈도우 */
+        /* 화면 전체를 덮는 배경 레이어의 위치, 크기, 투명도 지정 > 기본적으로 표시x */
+            .hd_gray_layer {
+                position:fixed;
+                left:0;
+                top:0;
+                height:100%;
+                width:100%;
+                background-color:black;
+                opacity: .4;
+                display: none;
+            }
+        /* 메뉴가 표현될 레이어를 화면좌측에 배치 > 기본적으로 표시x */
+            .hd_over_layer {
+                position:fixed;
+                top:0;
+                left:0;
+                display:none;
+                width: 75%;
+                height:100%;
+                z-index: 8000;
+                display: none;
+                background-color: #fff;
+            }
+        /* menu header */
+            #hd_menu_logoicon {
+                display: inline-block;
+                width:75px;
+                height:30px;
+                background-image:url(../img/laporte_clipping.png);
+                background-repeat: no-repeat;
+                background-size:590px 300px;
+                background-position:-328px -12px;
+            }
+            .hd_menu_ul {
+                margin:40px 0;
+            }
+            .hd_menu_ul li:hover {
+                text-decoration:underline; cursor:pointer;
+                color:#000;
+            }
+            .hd_menu_ul li {
+                margin:15px 0 15px 20px;
+            }
+            #hd_menu_header {
+                padding:30px 20px;
+            }
+            #hd_menu_logo {
+                float:left;
+            }
+            #hd_menu_close {
+                float:right;
+            }
+            #hd_menu_close a {
+                padding:5px 9px;
+                text-decoration:none;
+            }
+            #hd_menu_close a:hover {
+                background-color:#eee;
+                border-radius:50px;
+                color:#000;
+            }
+        /* menu content */
+            #hd_menu_ul1, #hd_menu_ul2 {
+                font-weight: 700;
+            }
+            #hd_menu_product h3{
+                margin-bottom:30px;
+                font-weight: 900;
+            }
+            #hd_menu_ul3 a {
+                font-size:14px;
+            }
+     /* 검색 */
+            .hd_searchbox {
+                background-color:#cebea7;
+                height:110px;
+            }
+            .hd_search {
+                position:relative;
+                width:85%;
+                height:auto;
+                margin:0 auto;
+                padding-top:56px;
+            }
+            .hd_searchbox input {
+                display: block;
+                background-color:#e3ddcb;
+                width:100%;
+                height:40px;
+                border: 2px solid transparent;
+                border-radius:50px;
+                outline: 0;
+                cursor: text;
+                text-indent:50px;
+            }
+            #hd_search_icon {
+                width:22px;
+                height:22px;
+                background-image:url(../img/laporte_clipping.png);
+                background-repeat: no-repeat;
+                background-size:450px 250px;
+                background-position:-50px -16px;
+                position:absolute;
+                top:68px;
+                left:16px;
+            }
+            .sc_gray_layer{
+            	position:fixed;
+                left:0;
+                top:0;
+                height:100%;
+                width:100%;
+                background-color:black;
+                opacity: .4;
+                display: none;
+                z-index:1000;
+            }
+            .sc_over_layer{
+            	position:fixed;
+                top:0;
+                left:0;
+                width: 100%;
+                height:85%;
+                z-index: 8000;
+                display: none;
+                background-color: #fff;
+                border-radius: 0 0 10px 10px;
+            }
+            #hd_search_front #modal_search_text{
+            	display: block;
+    			background-color: #fff;
+    			width: 95%;
+   				height: 44px;
+    			border: 2px solid #172F50;
+    			border-radius: 50px;
+    			outline: 0;
+    			cursor: text;
+    			text-indent: 51px;
+            	margin:auto;
+            }
+            #modal_search_box_container{
+            	margin-top:8px;
+            	position:relative;
+            }
+			#search_close_icon{
+				display: block;
+    			width: 20px;
+    			height: 20px;
+    			background: url(../img/laporte_clipping.png);
+    			background-size: 389px 230px;
+    			background-position: -182px -133px;
+    			position: absolute;
+    			top: 12px;
+    			left: 30px;
+			}
+			#search_remove_icon{
+				display: block;
+    			width: 20px;
+    			height: 20px;
+    			background: url(../img/laporte_clipping.png);
+    			background-size: 500px 252px;
+    			background-position: -239px -180px;
+    			position: absolute;
+    			top: 11px;
+    			left: 283px;
+			}
+			#search_enter_icon{
+				display: block;
+    			width: 20px;
+    			height: 20px;
+    			background: url(../img/laporte_clipping.png);
+    			background-size: 500px 250px;
+    			background-position: -129px -115px;
+    			position: absolute;
+    			top: 12px;
+    			left: 315px;
+			}
+			#search_result{
+				width:90%;
+				height:400px;
+				margin:auto;
+				padding-top:10px;
+			}
+			#search_result a{
+				display:block;
+				padding:10px;
+			}
+			.rec_reyword{
+				display: inline-block;
+    			width: 20px;
+    			height: 18px;
+    			background: url(../img/laporte_clipping.png);
+    			background-size: 452px 230px;
+    			background-position: -47px -11px;
+    			margin-right: 14px;
+			}
+/* fa_content
+---------------------------*/
+            #fa_csservice {
+                font-size:14px;
+            }
+
+            #fa_ask {
+                position:relative;
+                bottom:30px;
+            }
+            .fa_popular_box {
+                background-color:#BFDAFB;
+                position:relative;
+                bottom:39px;
+                padding-bottom:15px;
+                min-height:280px;
+            }
+            .fa_popular_box h4 {
+                font-size:16px;
+                color:#111111;
+                padding: 15px 3px 3px 13px;
+            }
+            .fa_collapse {
+                margin:6px 9px 0 9px;
+                background-color:#fff;
+            }
+
+            #fa_icon_q {
+                display:inline-block;
+                float:left;
+                width:30px;
+                height:30px;
+                margin-left:10px;
+                margin-top:8px;
+                background: url(../img/laporte_clipping.png);
+                background-size: 630px 420px;
+                background-position: -461.2px -82.9px;
+            }
+            #fa_text {
+                line-height:45px;
+                font-size:11px;
+                color:#484848;
+                margin-left:10px;
+                height:30px;
+                text-decoration: none;
+            }
+            .fa_time_holiday a {
+                font-size:11px;
+
+            }
+            .fa_collapse_content {
+                font-size:12px;
+                margin:0 8.9px 0 9px;
+                background-color:#eff5fa;
+                padding:0 0 15px 0;
+                display: none;
+            }
+            #fa_time_holiday_content2 {
+                margin:0 20px 0 50px;
+                background-color:white;
+                padding:20px 20px 4px 20px;
+            }
+             p.txt {
+                font-size:11px;
+                color:#484848;
+                line-height:160%;
+
+            }
+            #fa_icon_a {
+                display:inline-block;
+                float:left;
+                width:30px;
+                height:30px;
+                margin-left:10.9px;
+                background: url(../img/laporte_clipping.png);
+                background-size: 630px 420px;
+                background-position: -461.2px -27.4px;
+            }
+            span.txt {
+                color:#999999;
+                font-size:11px;
+                line-height:160%;
+            }
+            #fa_chat_icon {
+                display:inline-block;
+                width:18px;
+                height:25px;
+                line-height:30px;
+                background: url(../img/laporte_clipping.png);
+                background-size: 320px 180px;
+                background-position: -400.3px -46.1px;
+            }
+            .fa_chat {
+                display:inline-block;
+                font-size:12px;
+                color:#333333;
+                position:relative;
+                bottom:2.3px;
+            }
+            #fa_email_icon {
+                display:block;
+                width:18px;
+                height:25px;
+                line-height:30px;
+                background: url(../img/laporte_clipping.png);
+                background-size: 320px 180px;
+                background-position: -554.1px -74.1px;
+            }
+            .fa_email {
+                font-size:12px;
+                color:#333333;
+                position:relative;
+                left:21.6px;
+                bottom:23.4px;
+                padding:0;
+            }
+
+            #fa_text4 {
+                width:220px;
+                line-height:16px;
+                font-size:11px;
+                color:#484848;
+                position:relative;
+                left:50px;
+                top:16.5px;
+
+
+            }
+
+            #fa_icon_q4 {
+                display:block;
+                width:30px;
+                height:30px;
+                position:relative;
+                left:10px;
+                bottom:24px;
+                background: url(../img/laporte_clipping.png);
+                background-size: 630px 420px;
+                background-position: -461.2px -82.9px;
+            }
+
+            .fa_category_box {
+                padding:10px 20px;
+                margin:5px auto 20px auto;
+                background:#f4f4f4;
+            }
+
+            .fa_category_box li {
+                padding: 0 10px;
+                border-radius:2px;
+                margin-left:5px;
+                background:#fff;
+            }
+
+            .fa_category_box li a {
+                height:40px;
+                line-height:40px;
+                font-size:14px;
+                color:#555;
+                display:block;
+                text-align:center;
+                cursor: pointer;
+                text-decoration:none;
+            }
+            #fa_main {
+                display:inline-block;
+                margin-top:7px;
+            }
+
+            #fa_online {
+                display:inline-block;
+                margin-top:7px;
+            }
+
+            #fa_refund {
+                display:inline-block;
+                margin-top:7px;
+            }
+
+            #fa_service {
+                display:inline-block;
+                margin-top:7px;
+            }
+
+            #fa_product {
+                display:inline-block;
+                margin-top:7px;
+            }
+
+            #fa_site {
+                display:inline-block;
+                margin-top:7px;
+            }
+
+            .fa_content_toggle {
+                min-width:320px;
+            }
+
+            .fa_list {
+                min-width:320px;
+                border-top:1px solid;
+            }
+
+            .fa_list li {
+                list-style: none;
+                border-bottom:1px solid #e2e3e7;
+            }
+
+            .fa_list li:nth-child(2) {
+                margin-top:0;
+            }
+            .fa_list li:nth-child(3) {
+                margin-top:0;
+            }
+
+            .fa_article {
+                padding:0 0 20px 40px;
+                display:block;
+                cursor:pointer;
+            }
+
+            #fa_onlinebox {
+                display:none;
+            }
+
+            #fa_category_question_icon {
+                /*background: url(../img/laporte_clipping.png);
+                background-size: 630px 420px;
+                background-position: -461.2px -247.8px;
+                width:30px;
+                height:30px;
+                display:inline-block;
+                position:relative;
+                top:19px;
+                right:35px;*/
+
+                width:22px;
+                height:22px;
+                display:inline-block;
+                position:relative;
+                top:19px;
+                right:28.5px;
+                border-radius:34px;
+                font-size:12px;
+                font-weight:700;
+                line-height:23px;
+                color:white;
+                text-align: center;
+                background-color:#172f50;
+
+
+            }
+
+            .fa_tag {
+                display:inline-block;
+                color:#999999;
+                font-size:13px;
+                margin-bottom:10px;
+                position:relative;
+                right:16.5px;
+                top:14px;
+            }
+
+            .fa_title {
+                display:block;
+                color:#484848;
+                font-size:14px;
+                margin-left:9.9px;
+                margin-top:12px;
+                font-weight:500;
+            }
+
+            .fa_content {
+                font-size: 12px;
+                background-color:#eff5fa;
+                padding:15px 0 30px 10px;
+                display: none;
+            }
+
+            #fa_category_answer_icon {
+                display:inline-block;
+                width:30px;
+                height:30px;
+                float:left;
+                position:relative;
+                right:5px;
+                top:50px;
+                background: url(../img/laporte_clipping.png);
+                background-size: 580px 370px;
+                background-position: -422.8px -24.2px;
+            }
+
+            #fa_category_content {
+                background-color:white;
+                padding:17px;
+                margin:0 16.5px 0 38.7px;
+                position:relative;
+                top:15px;
+
+            }
+
+            p.category_txt {
+                min-width:190px;
+                font-size:13px;
+                color:#484848;
+                line-height:160%;
+
+            }
+
+            span.fa_category_txt {
+                color:#999999;
+                font-size:11px;
+                line-height:160%;
+            }
+
+            #fa_category_chat_icon {
+                display:inline-block;
+                width:18px;
+                height:25px;
+                line-height:30px;
+                background: url(../img/laporte_clipping.png);
+                background-size: 320px 180px;
+                background-position: -400.3px -46.1px;
+            }
+            .fa_category_chat {
+                display:inline-block;
+                font-size:12px;
+                color:#333333;
+                position:relative;
+                bottom:2.3px;
+            }
+
+            .fa_onlinebox {
+                display:none;
+                padding: 0 15px;
+            }
+             #fa_sub_online_box {
+                border-top:1px solid;
+                border-bottom:1px solid;
+                padding:15px 0 35px 10px;
+
+            }
+            .fa_sub_online {
+                display:inline-block;
+                border-right:1px solid #aaa;
+                font-size:13px;
+                color:#999999;
+                padding:4px 14px 4px 0;
+                text-indent: 10px;
+                cursor:pointer;
+                font-weight:700;
+            }
+
+            #fa_sub_payment {
+                display:none;
+            }
+            #fa_sub_ship {
+                display:none;
+            }
+            #fa_sub_subservice {
+                display:none;
+            }
+            #fa_sub_app {
+                display:none;
+            }
+
+            .fa_content_toggle .fa_sub_online:last-child {
+                border-right:0;
+            }
+            #fa_refundbox {
+                display:none;
+            }
+            #fa_sub_storebuy {
+                display:none;
+            }
+
+            .fa_refund_list li {
+                list-style: none;
+                border-bottom: 1px solid #e2e3e7;
+            }
+            .fa_refund_list li:nth-child(2) {
+                margin-top:0;
+            }
+            .fa_refund_list li:nth-child(3) {
+                margin-top:0;
+            }
+
+            .fa_refund_list2 li {
+                list-style: none;
+                border-bottom: 1px solid #e2e3e7;
+                margin-top: 13px;
+            }
+            .fa_refund_list2 li:nth-child(2) {
+                margin-top:0;
+            }
+            .fa_refund_list2 li:nth-child(3) {
+                margin-top:0;
+            }
+
+            #fa_sub_refund_box {
+                min-width:320px;
+                border-top:1px solid;
+                border-bottom:1px solid;
+                padding:15px 0 35px 10px;
+            }
+
+            .fa_sub_refund {
+                display:inline-block;
+                border-right:1px solid #aaa;
+                font-size:13px;
+                color:#999999;
+                padding:5px 7px 0 0;
+                text-indent: 10px;
+            }
+
+            #fa_servicebox {
+                display:none;
+            }
+
+            #fa_sub_service_box {
+                min-width:320px;
+                border-top:1px solid;
+                border-bottom:1px solid;
+                padding:15px 0 35px 10px;
+            }
+
+            .fa_sub_service {
+                display:inline-block;
+                border-right:1px solid #aaa;
+                font-size:13px;
+                color:#999999;
+                padding:5px 7px 0 0;
+                text-indent: 10px;
+            }
+            #fa_sub_pickupservice {
+                display:none;
+            }
+
+            #fa_installservice {
+                display:none;
+            }
+            #fa_sub_installservice {
+                display:none;
+            }
+            #fa_sub_consulting {
+                display:none;
+            }
+            #fa_sub_guitar {
+                display:none;
+            }
+
+            #fa_productbox {
+                display:none;
+
+            }
+
+            #fa_sitebox {
+                display:none;
+
+            }
+
+/* footer
+--------------------------- */
+			footer {
+				width:100%;
+				margin-top:40px;
+				background-color: #f5f5f5;
+				padding-bottom:40px;
+			}
+			.ft_collapse {
+				position: relative;
+				border-bottom:1px solid #d5d5d5;
+			}
+			.collapse-title {
+				width:320px;
+				height:90px;
+				padding:35px 0;
+				font-weight:700;
+			}
+			#ft_dropdown_icon {
+				width:24px;
+				height:24px;
+				position:absolute;
+				top:45px;
+				right:8px;
+				background-image: url(../img/laporte_clipping.png);
+				background-size: 320px 180px;
+				background-position: -28.2px -57.6px;
+			}
+			/* 아코디언 내용영역의 여백, 글자크기, 테두리, 숨김 */
+			.content {
+				display:none;
+				margin-left:20px;
+				padding:15px 0;
+			}
+			.content a {
+				font-size:14px;
+				color:#484848;
+			}
+			/*아이콘바 박스*/
+			.ft_iconbox {
+				width:320px;
+				height:40px;
+				margin-top: 40px;
+			}
+			.ft_app_icon {
+				display:inline-block;
+				width:36px;
+				height:36px;
+				border-radius:30px;
+				border:1px solid #dfdfdf;
+				float:left;
+				margin-right: 15px;
+				background-image: url(../img/laporte_clipping.png);
+				background-size: 640px 360px;
+				background-position: -20.5px -254.5px;
+			}
+			#ft_app_box {
+				width:24px;
+				height:27px;
+				float:left;
+				position:relative;
+				left:5px;
+				top:3px;
+			}
+			.ft_share_icon {
+				display:inline-block;
+				width:36px;
+				height:36px;
+				border:1px solid #dfdfdf;
+				border-radius:30px;
+				float:left;
+				background-image: url(../img/laporte_clipping.png);
+				background-size: 640px 320px;
+				background-position: -18px -266.5px;
+			}
+			#ft_share_box {
+				width:24px;
+				height:27px;
+				float:left;
+				position:relative;
+				left:5px;
+				top:3px;
+			}
+			.ft_interikea {
+				display:inline-block;
+			}
+			.ft_accessterms {
+				float:left;
+				margin-top:30px;
+			}
+			.ft_accessterms li {
+				float: left;
+				margin-right:20px;
+
+			}
+			.ft_accessterms a {
+				font-size:14px
+			}
+			.ft_legalinformation p {
+				font-size:14px;
+				margin-top:93px;
+				color:#484848;
+			}

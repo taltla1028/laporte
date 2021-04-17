@@ -1,0 +1,116 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CartMapper">
+
+    <!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+    <resultMap id="cartMap"
+        type="com.project.laporte.model.Cart">
+        <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+        <result property="cartno" column="cartno" />
+        <result property="userno" column="userno" />
+        <result property="prodno" column="prodno" />
+        <result property="ea" column="ea" />
+        <result property="regdate" column="regdate" />
+        <result property="editdate" column="editdate" />
+        
+        <result property="uname" column="uname" />
+        
+        <result property="pname" column="pname" />
+        <result property="price" column="price" />
+        <result property="saleprice" column="saleprice" />
+        <result property="stock" column="stock" />
+        <result property="color" column="color" />
+        <result property="size" column="size" />
+        
+        <result property="thumbnailUrl" column="thumbnailUrl" />
+        
+    </resultMap>
+	
+	<!-- 단일행 조회를 위한 기능 정의 -->
+    <select id="selectCartItem"
+        parameterType="com.project.laporte.model.Cart"
+        resultMap="cartMap">
+        SELECT c.cartno, c.userno, c.prodno, thumbnailurl, c.ea, u.name AS 'uname', p.name AS 'pname', p.price,
+        		p.saleprice, p.stock, p.color, p.size
+        FROM cart c
+        INNER JOIN user u ON u.userno = c.userno
+        INNER JOIN product p ON p.prodno = c.prodno
+        INNER JOIN firstimg f ON c.prodno = f.prodno
+        WHERE cartno=#{cartno}
+    </select>
+	
+	<!-- 카트 번호로 카트 조회를 위한 기능 정의 -->
+    <select id="selectCartByCartno"
+        parameterType="com.project.laporte.model.Cart"
+        resultMap="cartMap">
+        SELECT c.cartno, c.userno, c.prodno, thumbnailurl, c.ea, u.name AS `uname`, p.name AS `pname`, p.price,
+        		p.price, p.stock, p.color, p.size
+        FROM cart c
+        INNER JOIN user u ON u.userno = c.userno
+        INNER JOIN product p ON p.prodno = c.prodno
+        INNER JOIN firstimg f ON c.prodno = f.prodno
+        WHERE cartno=#{cartno}
+        ORDER BY prodno
+    </select>
+    
+	<!-- 다중행 조회를 위한 기능 정의 -->
+    <select id="selectCartList"
+        parameterType="com.project.laporte.model.Cart"
+        resultMap="cartMap">
+        SELECT c.cartno, c.userno, c.prodno, c.ea, thumbnailurl, u.name AS 'uname', p.name AS 'pname', p.price,
+        		p.saleprice, p.stock, p.color, p.size
+        FROM cart c
+        INNER JOIN user u ON u.userno = c.userno
+        INNER JOIN product p ON p.prodno = c.prodno
+        INNER JOIN firstimg f ON c.prodno = f.prodno
+        WHERE c.userno = #{userno}
+        ORDER BY cartno
+    </select>
+	
+	
+    <!-- 장바구니 저장을 위한 기능 정의 -->
+	<insert id="insertCartItem"
+		parameterType = "com.project.laporte.model.Cart"
+		useGeneratedKeys="true" keyProperty="cartno">
+		INSERT INTO cart(userno, prodno, ea, regdate, editdate)
+		VALUES(#{userno}, #{prodno}, #{ea}, now(), now())
+	</insert>
+
+    <!-- 장바구니 수정을 위한 기능 정의 -->
+    <update id="updateCartItem"
+        parameterType="com.project.laporte.model.Cart">
+        UPDATE cart SET
+            cartno=#{cartno}, ea=#{ea}, editdate=now()
+        WHERE cartno=#{cartno}
+    </update>
+    
+    <!-- 장바구니 삭제를 위한 기능 정의 -->
+    <delete id="deleteCartItem"
+        parameterType="com.project.laporte.model.Cart">
+        DELETE FROM cart WHERE cartno=#{cartno}
+    </delete>
+    
+    <!-- 장바구니 중복 확인을 위한 기능 정의 -->
+	<select id="countCart"
+		parameterType = "com.project.laporte.model.Cart" resultType="int">
+		SELECT COUNT(*) FROM cart WHERE userno = #{userno} AND prodno = #{prodno}
+	</select>
+    
+    <!-- 장바구니 동일상품 추가시 수량증가 기능 정의 -->
+    <update id="updateCartList"
+    	parameterType="com.project.laporte.model.Cart">
+    	UPDATE cart SET
+    		ea = ea + #{ea}
+    		WHERE userno = #{userno} AND prodno = #{prodno}
+    </update>
+    
+    <!-- 회원 삭제 시 회원 번호 null로 업데이트 -->
+    <update id = "unsetUsernoCart"
+    	parameterType = "com.project.laporte.model.User">
+    	UPDATE cart SET userno = null WHERE userno = #{userno} 
+    </update>
+	
+</mapper>

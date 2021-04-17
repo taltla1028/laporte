@@ -1,0 +1,262 @@
+@charset "UTF-8";
+
+.cart_title {
+  margin-top: 40px;
+}
+#cart_itemlist {
+  display : block;
+  width: 100%;
+  margin: 20px 0;
+}
+input[type="checkbox"] {
+  margin: 50px 0;
+}
+.cart_itembox {
+  display:flex;
+  width: 100%;
+}
+.cart_item {
+  margin: 20px 0;
+  width:100%;
+}
+.cart_item_img {
+  width: 75px;
+  height: 75px;
+  margin: 0 10px;
+  float: left;
+}
+.cart_item_title {
+  font-size: 14px;
+  font-weight: 700;
+  width: 60%;
+}
+.cart_item_info {
+  font-size: 14px;
+}
+.cart_item_price {
+  font-size: 14px;
+  font-weight: 700;
+  float: right;
+  margin-right: 10px;
+}
+.cart_item_1ea {
+  font-size: 14px;
+  float: right;
+  margin-right: 10px;
+}
+.cart_count {
+  margin: 0 10px 20px 0;
+  float: right;
+  font-size: 14px;
+}
+.cart_productcount {
+  border-color: #dfdfdf;
+  border-radius: 50px;
+  outline: 0;
+  width: 90px;
+  padding: 10px 10px 10px 20px;
+}
+.cart_delete, .cart_edit {
+  border: 0;
+  outline: 0;
+  background-color: #fff;
+  font-size: 14px;
+  margin: 0 10px;
+}
+.cart_login {
+  width: 100%;
+  margin: 40px 0;
+  padding: 30px 20px;
+  border: 1px solid #dfdfdf;
+  border-radius: 2px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.cart_text {
+  margin-right: 10px;
+  font-size: 14px;
+}
+.cart_text a {
+  text-decoration: underline;
+  font-size: 14px;
+}
+.cart_text a:hover {
+  color: #000;
+}
+.cart_footer {
+  margin: 40px 0;
+}
+#cart_return {
+  margin: 40px 0;
+}
+#cart_return_icon {
+  display: inline-block;
+  margin-right: 10px;
+  width: 20px;
+  height: 20px;
+  background-image: url(../img/laporte_clipping.png);
+  background-repeat: no-repeat;
+  background-size: 418px 220px;
+  background-position: -168px -125px;
+  vertical-align: -2px;
+}
+#cart_toggle {
+  display: inline;
+  border: 0;
+  outline: 0;
+  background: none;
+  text-decoration: underline;
+}
+#cart_hidden {
+  display: none;
+  width: 100%;
+}
+#cart_productbox {
+  margin: 30px 0;
+}
+#cart_productno {
+  border: 0;
+  border-bottom: 1px solid #000;
+  outline: 0;
+  overflow: hidden;
+  margin-right: 20px;
+}
+#cart_productno:focus {
+  border-bottom: 2px solid #172f50;
+}
+#cart_addproductbox {
+  margin-top: 20px;
+}
+#cart_addproduct {
+  display: block;
+  border: 1px solid #dfdfdf;
+  border-radius: 50px;
+  outline: 0;
+  background-color: #fff;
+  width: 160px;
+  padding: 15px;
+  margin: 0 auto;
+}
+.cart_info {
+  margin: 40px 0;
+}
+.cart_info hr {
+  margin: 20px 0;
+  border: none;
+  border-bottom: 2px solid #d5d5d5;
+}
+.cart_total {
+  float: left;
+}
+.cart_totalprice {
+  float: right;
+  font-size: 20px;
+  font-weight: 700;
+}
+#cart_payment {
+  width: 100%;
+  height: 45px;
+  background-color: #172f50;
+  outline: 0;
+  border: 0;
+  border-radius: 50px;
+  color: #fff;
+  display:block;
+  text-align:center;
+  padding:10px 0;
+}
+
+/* 모든 제품 */
+#home_item_box {
+  overflow: scroll;
+}
+#home_item_listbox {
+  display: inline-flex;
+  margin-bottom: 30px;
+}
+.home_item {
+  position: relative;
+  max-width: 120px;
+  margin: 0 10px;
+}
+.home_wishlist_loc {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+.home_wishlist_icon {
+  display: inline-block;
+  width: 30px;
+  height: 24px;
+  background-image: url(../img/laporte_clipping.png);
+  background-repeat: no-repeat;
+  background-size: 530px 300px;
+  background-position: -20px -52px;
+}
+.home_wishlist_icon_active {
+  display: inline-block;
+  width: 30px;
+  height: 24px;
+  background-image: url(../img/laporte_clipping.png);
+  background-repeat: no-repeat;
+  background-size: 530px 300px;
+  background-position: -294px -246px;
+}
+.home_item_img {
+  margin: 40px 0 30px 0;
+  width: 120px;
+  height: 120px;
+}
+.home_item_title,
+.home_item_price {
+  font-size: 14px;
+  font-weight: 700;
+}
+.home_item_info {
+  font-size: 12px;
+}
+.home_item_mark {
+  background-color: #ffdb00;
+  box-shadow: 2px 2px #e00751;
+  width: 60px;
+}
+.home_item_new {
+  position: absolute;
+  top: 170px;
+  left: 0;
+  color: #ca5008;
+  font-size: 12px;
+  font-weight: 700;
+}
+.home_item_down {
+  position: absolute;
+  top: 170px;
+  left: 0;
+  color: #ff0000;
+  font-size: 12px;
+  font-weight: 700;
+}
+.home_item_pricedown {
+  text-decoration: line-through;
+}
+.home_item:hover .home_item_title {
+  text-decoration: underline;
+}
+.home_cartloc {
+  position: absolute;
+  bottom: -30px;
+  right: 10px;
+  width: 35px;
+  height: 35px;
+  background-color: #172f50;
+  border-radius: 50px;
+}
+.cart_icon {
+  display: inline-block;
+  width: 35px;
+  height: 35px;
+  background-image: url(../img/laporte_clipping.png);
+  background-size: 600px 300px;
+  background-position: -17px -124px;
+}

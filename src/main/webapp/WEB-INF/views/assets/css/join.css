@@ -1,0 +1,183 @@
+@charset "UTF-8";
+
+		#Join > .header {
+           width: 100%;
+		   height: 260px; 
+		   background-color: #CEBEA7;
+		   padding-top: 55px;
+		}
+		
+		#Join > .header > h3 {
+           width: 100%;
+           margin: auto;
+		   display: block;
+           margin-top: 0;
+           text-align: center;
+		   padding: 58px 0 1px 0;
+
+		}
+    	
+    	input:focus{
+    	   outline: none;
+    	   opacity: 1;
+    	}
+    	
+
+    	#Join > .header > a{
+    	   display: block;
+    	   padding: 10px;
+    	}
+    	
+    	#Join > .header > a > #d_icon_l{
+    	   display: block;
+    	   width:23px;
+    	   height: 23px;
+    	   background-image: url(../img/laporte_clipping.png);
+    	   background-repeat:no-repeat;
+    	   background-size: 640px 360px;
+    	   background-position: -118px -260px;
+    	   margin: 10px;
+    	   text-indent: -10000px;
+    	}
+    	.Join_information_box1 {
+            width:100%;
+            height:90px;
+            text-align: center;
+            border-bottom:2px solid #d5d5d5;
+        }
+
+
+
+        #Join_info_text {
+           width: 100%;
+           display: inline;
+           text-align: center;
+           color:#333333;
+           font-size:16px;
+        }
+
+        .Join_info_line {
+            width: auto;
+            padding: 39px 15px 0;
+        }
+
+        .Join_info_line input, .Join_info_line2 input {
+            display: inline;
+        }
+
+
+        .Join_information_box2 {
+            width: 100%;
+            text-align: center
+            ;
+            height:200px;
+        }
+            
+
+
+        #Join_accessterm_text {
+            display: block;
+            width: 100%;
+            margin: auto;
+            margin-top: 35px;
+            color:#333333;
+            font-size:16px;
+        }
+
+        #Join_accessterm_dropdown {
+            display:inline-block;
+            width:15px;
+            height:15px;
+            background-image: url(../img/laporte_clipping.png);
+            background-size: 320px 180px;
+            background-position: -33.7px -55.7px;
+            position:relative;
+            left:3px;
+            top:2px;
+        }
+
+
+        #Join_personal_text {
+            display: block;
+            width: 100%;
+            margin: auto;
+            margin-top: 20px;
+            color:#333333;
+            font-size:16px;
+        }
+
+        #Join_personal_dropdown {
+            display:inline-block;
+            width:15px;
+            height:15px;
+            background-image: url(../img/laporte_clipping.png);
+            background-size: 320px 180px;
+            background-position: -33.7px -55.7px;
+            position:relative;
+            left:3px;
+            top:2px;
+        }
+
+   
+
+        #Join_email_text {
+            display: block;
+            width: 100%;
+            margin: auto;
+            margin-top: 20px;
+            color:#333333;
+            font-size:16px;
+        }
+
+        .content {
+              display:none;
+              width: 450px;
+              margin:auto;
+              font-size: 14px;
+              color:#484848;
+              border-left:hidden;
+              border-right:hidden;
+              padding-top:10px;
+              padding-bottom:10px;
+              text-align: left;
+            }
+
+        button{
+           display: block;
+           width: 70%;
+           height: 45px;
+           border: none;
+           border-radius: 50px;
+           margin: auto;
+           margin-top: 50px;
+        }
+        
+        button:focus{
+           outline: none;
+        }
+
+        #Join_btn{
+           background-color:#172F50;
+           color: #ffffff;
+        }
+        
+        #Join_btn:hover{
+           background-color: #33598c;
+        }
+        
+        #Join_btn:focus{
+           border: none;
+        }
+
+        .footer{
+           color: rgb(105,105,105);
+           display: block;
+           width: 100%;
+           margin:auto;
+           margin-top: 50px;
+        }
+        
+        .footer a{
+           color: rgb(105,105,105);
+           text-decoration: underline;
+        }

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="OutuserMapper">
+
+    <!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+    <resultMap id="outuserMap"
+        type="com.project.laporte.model.Outuser">
+        <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+        <result property="outuserno" column="outuserno" />
+        <result property="userno" column="userno" />
+        <result property="email" column="email" />
+        <result property="name" column="name" />
+        <result property="birthdate" column="birthdate" />
+        <result property="phoneno" column="phoneno" />
+        <result property="gender" column="gender" />
+        <result property="addr1" column="addr1" />
+        <result property="addr2" column="addr2" />
+        <result property="postcode" column="postcode" />
+        <result property="outreason" column="outreason" />
+        <result property="regdate" column="regdate" />
+        <result property="outdate" column="outdate" />
+    </resultMap>
+
+	<!-- 탈퇴 회원 정보 저장을 위한 기능 정의 -->
+	<insert id="insertOutuser"
+		parameterType = "com.project.laporte.model.Outuser"
+		useGeneratedKeys="true" keyProperty="outuserno">
+		INSERT INTO outuser(userno, email, name, birthdate, phoneno, gender, addr1, addr2,
+		postcode, outreason, regdate, outdate)
+		VALUES(#{userno}, #{email}, #{name}, #{birthdate}, #{phoneno}, #{gender},
+		#{addr1}, #{addr2}, #{postcode}, #{outreason}, #{regdate}, now()
+		)
+	</insert>
+
+	<!-- 탈퇴 회원 목록 조회를  위한 기능 정의 -->
+	<select id="selectOutuserList" parameterType = "com.project.laporte.model.Outuser" resultMap="outuserMap">
+		SELECT outuserno, userno, email, name, birthdate, phoneno, gender,addr1, addr2,
+		postcode, outreason, regdate, outdate
+		FROM outuser
+	</select>
+
+
+</mapper>

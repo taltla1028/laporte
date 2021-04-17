@@ -1,0 +1,100 @@
+@charset "UTF-8";
+/*------------페이지 위치--------------- */
+.page-header {
+  margin: 10px 0;
+  padding: 0;
+}
+.breadcrumb {
+  background: none;
+  margin-bottom: 10px;
+}
+.breadcrumb > li,
+.breadcrumb > .active,
+.breadcrumb a {
+  color: #333;
+  font-size: 14px;
+}
+
+.breadcrumb > li + li:before {
+  content: "";
+  background-image: url(../img/laporte_clipping.png);
+  display: inline-block;
+  width: 25px;
+  height: 10px;
+  background-size: 277px 137px;
+  background-position: -147.2px -43.6px;
+}
+
+/*---------아이콘 이미지클리핑 -----------*/
+#cs_shopping {
+  background-image: url(../img/cs_img_clipping.png);
+  display: block;
+  width: 200px;
+  height: 150px;
+  background-size: 1400px 680px;
+  background-position: -37px -69px;
+}
+#cs_fa {
+  background-image: url(../img/cs_img_clipping.png);
+  display: block;
+  width: 150px;
+  height: 150px;
+  background-size: 1400px 700px;
+  background-position: -62px -231px;
+}
+#cs_center {
+  background-image: url(../img/cs_img_clipping.png);
+  display: block;
+  width: 150px;
+  height: 150px;
+  background-size: 1650px 825px;
+  background-position: -85px 358px;
+}
+#cs_delivery {
+  background-image: url(../img/cs_img_clipping.png);
+  display: block;
+  width: 200px;
+  height: 150px;
+  background-size: 1700px 900px;
+  background-position: -71px -713px;
+  margin: auto;
+}
+#cs_return {
+  background-image: url(../img/cs_img_clipping.png);
+  display: block;
+  width: 120px;
+  height: 150px;
+  background-size: 2000px 1000px;
+  background-position: -353px -3338px;
+  margin: auto;
+}
+
+/* 화살표 */
+.cs_arrow_icon {
+  width: 30px;
+  height: 30px;
+  background-image: url(../img/laporte_clipping.png);
+  background-size: 500px 300px;
+  background-position: -125.2px -133.6px;
+  display: block;
+}
+
+.cs_content {
+  margin: 35px 0;
+}
+.cs_icon_img {
+  margin: auto;
+}
+.cs_content_link {
+  display: block;
+}
+.cs_img_box {
+  padding: 20px 0 40px 0;
+}
+.cs_explain_box p {
+  line-height: 25px;
+  font-size: 14px;
+}
+.cs_title {
+  padding: 15px 0;
+}

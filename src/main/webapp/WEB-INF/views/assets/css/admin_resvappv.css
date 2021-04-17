@@ -1,0 +1,108 @@
+@charset "utf-8";
+
+/*공통영역*/
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+a {
+  text-decoration: none;
+}
+a:link {
+  color: #6f6f70;
+}
+a:visited {
+  color: #6f6f70;
+}
+a:hover {
+  color: #6f6f70;
+}
+a:active {
+  color: #6f6f70;
+}
+ol,
+ul {
+  list-style: none;
+}
+span {
+  font-size: 14px;
+}
+
+li {
+  list-style: none;
+}
+
+.content .appv_before_head,
+.content .appv_done_head,
+.content .appv_cancel_head {
+  display: block;
+  background-color: #717b86;
+  color: #fff;
+  width: 90%;
+  height: 35px;
+  margin: auto;
+  margin-top: 20px;
+  padding-top: 5px;
+  border-top: 1px solid #dedede;
+  font-weight: 800;
+}
+
+.content #no_res_mssg p {
+  text-align: center;
+}
+.content .appv_before_li,
+.content .appv_done_li,
+.content .appv_cancel_li {
+  display: block;
+  width: 90%;
+  height: 35px;
+  margin: auto;
+  margin-top: 0;
+  padding-top: 5px;
+  border-top: 1px solid #dedede;
+}
+
+.appv_before_li:last-child,
+.appv_done_li:last-child {
+  border-bottom: 1px solid #dedede;
+  padding-bottom: 5px;
+}
+
+.content .appv_before_head span,
+.content .appv_done_head span,
+.content .appv_cancel_head span {
+  display: inline-block;
+  margin: auto;
+  width: 13%;
+  text-align: center;
+}
+
+.content .appv_before_li span,
+.content .appv_done_li span,
+.content .appv_cancel_li span {
+  display: inline-block;
+  margin: auto;
+  width: 13%;
+  text-align: center;
+}
+
+.content .appv {
+  display: inline-block;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  margin-left: 5px;
+}
+
+.content .cancel {
+  display: inline-block;
+  font-size: 12px;
+  color: #fff;
+  text-align: center;
+  border-radius: 5px;
+  margin-left:2px;
+}
+
+/*공통영역 끝*/

@@ -1,0 +1,481 @@
+@charset "UTF-8";
+
+/*----- 위시리스트 input ----*/
+input {
+	height: 40px;
+	width: 100%;
+}
+
+input:focus {
+	outline: none;
+	opacity: 1;
+}
+
+.form-group {
+	margin: 0;
+}
+
+/* ---- 버튼  -----*/
+.wishlist_list_box .btn-default {
+	color: #000;
+	background-color: #f1f1f1;
+	border: none;
+}
+
+.btn-default:hover, .btn-default:active {
+	color: #000;
+	background-color: #dedede;
+}
+
+.btn-primary {
+	color: #fff;
+	background-color: #172F50;
+	border: none;
+}
+
+.btn-primary:hover {
+	color: #fff;
+	background-color: #33598c;
+	border: none;
+}
+
+.btn-danger {
+	height: 35px;
+	margin: 0 0 0 5px;
+}
+
+#wishlist_container {
+	width: 350px;
+	margin: auto;
+	padding-top: 20px;
+}
+
+#wish_title_box {
+	display: block;
+	margin: auto;
+	font-size: 24px;
+	width: fit-content;
+	color: #000;
+}
+
+#wish_title_box:hover {
+	color: #000;
+}
+
+#wish_title {
+	font-size: 24px;
+}
+
+.wish_arrow_icon {
+	display: inline-block;
+	width: 25px;
+	height: 36px;
+}
+
+.wish_img {
+	width: 200px;
+	margin: auto;
+	padding-top: 18px;
+	display: block;
+}
+
+#wishlist_textbox {
+	padding-top: 10px;
+}
+
+#wishlist_textbox p {
+	text-align: center;
+}
+
+.link {
+	text-align: center;
+	text-decoration: underline;
+	color: #407ab1;
+	display: block;
+	padding: 15px;
+	width: fit-content;
+	margin: auto;
+}
+
+.wish_btn {
+	display: block;
+	width: 49%;
+	line-height: 40px;
+	max-width: 352px;
+	border: none;
+	background-color: #172F50;
+	color: #fff;
+	text-align: center;
+	border-radius: 3px;
+}
+
+.wish_btn_box_container>a:last-child {
+	margin-right: 0;
+}
+
+.wish_btn:hover {
+	text-decoration: none;
+	color: #fff;
+	background-color: #33598c;
+}
+
+.wish_btn_box_container {
+	margin: auto;
+	width: 95%;
+	height: 40px;
+}
+
+/* 위시리스트 모달윈도우 */
+/* 화면 전체를 덮는 배경 레이어의 위치, 크기, 투명도 지정 > 기본적으로 표시x */
+.wish_gray_layer {
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 4000;
+	background: hsla(0, 0%, 100%, .75);
+	display: none;
+}
+/* 메뉴가 표현될 레이어를 화면좌측에 배치 > 기본적으로 표시x */
+.wish_over_layer {
+	position: fixed;
+	top: 70px;
+	left: 5px;
+	right: 5px;
+	margin: auto;
+	width: 90%;
+	z-index: 8000;
+	display: none;
+	background-color: #fff;
+	box-shadow: 0 0 7px 2px #ccc;
+	border-radius: 2px;
+	max-height: 75%;
+	overflow: auto;
+}
+
+.wish_over_layer>h4 {
+	text-align: center;
+	margin-top: 20px;
+}
+
+.wish_close_button {
+	display: block;
+	width: 20px;
+	height: 20px;
+	background: url(../img/laporte_clipping.png);
+	background-size: 389px 230px;
+	background-position: -182px -133px;
+	position: absolute;
+	top: 20px;
+	right: 20px;
+	cursor: pointer;
+}
+
+.wishlist_list_box {
+	margin: 25px 0;
+}
+
+.wishlist_list {
+	height: 35px;
+	margin: 20px 0;
+}
+
+.wishlist_list>.wishlist_select {
+	font-weight: bold;
+}
+
+.wishlist_select {
+	line-height: 35px;
+	cursor: pointer;
+}
+
+.wishlist_rename_icon {
+	display: block;
+	width: 35px;
+	height: 35px;
+	background: url(../img/laporte_clipping.png);
+	background-size: 480px 270px;
+	background-position: -188px -7px;
+	float: right;
+	cursor: pointer;
+}
+
+.wishlist_delete_icon {
+	cursor: pointer;
+	display: block;
+	width: 35px;
+	height: 35px;
+	background: url(../img/laporte_clipping.png);
+	background-size: 486px 270px;
+	background-position: -152px -185px;
+}
+
+.add_wish_icon {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	background: url(../img/laporte_clipping.png);
+	background-size: 420px 240px;
+	background-position: -220px -101px;
+	float: left;
+}
+
+.add_wish_text {
+	display: inline-block;
+	line-height: 35px;
+	color: #172F50;
+	font-size: 15px;
+}
+
+.add_wishlist_box {
+	width: fit-content;
+	height: 40px;
+}
+
+.add_wishlist_box:hover {
+	cursor: pointer;
+}
+
+.add_wishlist_form {
+	margin: auto;
+	width: 90%;
+}
+
+#title {
+	margin-bottom: 8px;
+}
+
+.wish_add_btn_box button {
+	width: 49%;
+	height: 40px;
+}
+
+.wish_add_btn_box {
+	width: 90%;
+	height: 40px;
+	margin: auto;
+}
+
+.add_wishlist_form label {
+	font-weight: normal;
+	font-size: 15px;
+}
+
+.wishlist_list_container {
+	margin: auto;
+	width: 90%;
+}
+
+.wish_hr {
+	margin: auto;
+	border-top: 1.9px solid #eee;
+	padding: 9px;
+}
+
+.wish_edit_cancel, .wish_edit_save {
+	height: 35px;
+	height: 35px;
+	margin: 5px 5px 5px 0;
+}
+
+.wishlist_hide_box {
+	height: 60px;
+}
+
+.wishlist_delete_hide {
+	margin: -20px 0 0 0;
+	padding-bottom: 15px;
+}
+
+.wishlist_delete_hide p {
+	color: #f74b4b;
+	font-size: 14px;
+}
+
+/*---------------위시리스트에 아이템 추가시 ( wishlist_add.html ) ---------------------- */
+/* 구분선 */
+.wish_contour {
+	width: 90%;
+	margin: auto;
+	padding: 5px;
+}
+/* -------위시리스트 컨텐츠 박스 -------*/
+.wish_item_contents {
+	padding: 20px 10px;
+	border-top:dashed 1px #d6d6d6;
+}
+
+.wish_img_box {
+	width: 40%;
+	float: left;
+}
+
+.wish_img_box>img {
+	display: block;
+	width: 100%;
+}
+
+.wish_item_desc {
+	float: right;
+	width: 60%;
+}
+
+.wish_item_price {
+	display: inline-block;
+}
+
+.wish_item_total_price {
+	font-weight: bold;
+}
+
+.wish_item_1ea_price {
+	font-size: 13px;
+} /* 개당 가격 */
+.wish_movetolist {
+	margin: 10px 0;
+	height: 25px;
+}
+
+.wish_movetolist>button {
+	border: none;
+	background: none;
+	float: right;
+	color: #437FB3;
+	height: 20px;
+}
+
+.wish_item_remove {
+	float: left;
+	margin-right: 7px;
+}
+
+.wish_item_remove_img {
+	display: inline-block;
+	width: 15px;
+	height: 22px;
+	background: url(../img/laporte_clipping.png);
+	background-size: 534px 300px;
+	background-position: -180px -214px;
+}
+
+.wish_item_quantity_box {
+	float: left;
+}
+
+.wish_item_quantity_box .wish_item_quantity {
+	height: 40px;
+	font-size: 16px;
+	width: 70px;
+}
+
+.wish_item_addtobag {
+	float: right;
+	height: 100%;
+}
+
+.addtobag_btn {
+	line-height: 25px;
+	height: 100%;
+}
+
+.addtobag_img {
+	display: inline-block;
+	width: 28px;
+	height: 17px;
+	background: url(../img/laporte_clipping.png);
+	background-size: 420px 240px;
+	background-position: -12px -103px;
+}
+/* -----컨텐츠 박스 끝 ------*/
+.wish_order_total {
+	border-top: dashed 1px #d6d6d6;
+	border-bottom: dashed 1px #d6d6d6;
+	margin-bottom: 20px;
+}
+
+.wish_order_total_row {
+	margin: 15px 0;
+	padding: 0 10px;
+	font-weight: bold;
+}
+
+.wish_order_total_price {
+	float: right;
+}
+
+.add_alltobag {
+	margin: auto;
+	width: 95%;
+}
+
+.all_addtobag_btn {
+	width: 100%;
+	height: 40px;
+	line-height: 25px;
+}
+
+/* 위시리스트 상품 삭제 확인 박스*/
+.wish_item_delete_box {
+	margin: 20px 0;
+}
+
+.wish_item_delete_text {
+	text-align: center;
+	margin: 10px;
+	display: block;
+}
+
+.wish_item_btn {
+	width: 49%;
+	background: none;
+	border: 1px solid #437FB3;
+	color: #437FB3;
+	height: 40px;
+}
+
+.wish_prod_thumb {
+	width: 115px;
+}
+
+.wish_desc_num {
+	font-size: 14px;
+}
+.wish_item_count{
+	height: 40px;
+    border-radius: 4px;
+    cursor: pointer;
+    width: 55px;
+}
+.prod_delete_btn{
+	height: 40px;
+}
+.wish_item_name{
+	margin-top:0;
+}
+.bold_class{
+	font-weight: bold;
+}
+.wishlist_delete_hide,
+.wishlist_edit_hide{
+	display:none;
+}
+.wish_item_total_price_sale{
+	font-size: 11px;
+    text-decoration: line-through;
+}
+.wish_item_1ea_price_sale_after{
+	font-size:10px;
+	text-decoration: line-through;
+}
+.wish_item_sale_price{
+	font-size: 15px;
+}
+.wish_item_1ea_saleprice{
+    font-size: 12px;
+}
+.move_wish_title{
+	width: fit-content;
+    height: fit-content;
+    display: block;
+}

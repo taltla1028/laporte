@@ -1,0 +1,170 @@
+@charset "UTF-8";
+
+a {
+  color: #333;
+}
+a:hover {
+  color: #333;
+  text-decoration: none;
+}
+
+#order_img {
+  display: block;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #c9cfe0;
+  background-image: url(../img/admin_clipping.png);
+  background-repeat: no-repeat;
+  background-position: -46px 7px;
+  background-size: 387px;
+}
+
+.dashbox {
+  display: inline-block;
+  position: relative;
+  height: 147px;
+  padding: 42px 40px 45px 100px;
+  width: 260px;
+}
+
+#today_order:before {
+  content: "";
+  position: absolute;
+  top: 37px;
+  left: 15px;
+  display: block;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #c9cfe0;
+  background-image: url(../img/admin_clipping.png);
+  background-repeat: no-repeat;
+  background-position: -46px 7px;
+  background-size: 387px;
+}
+
+#today_payment:before {
+  content: "";
+  position: absolute;
+  top: 37px;
+  left: 15px;
+  display: block;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #c9cfe0;
+  background-image: url(../img/admin_clipping.png);
+  background-repeat: no-repeat;
+  background-position: 10px 7px;
+  background-size: 387px;
+}
+
+#today_refund:before {
+  content: "";
+  position: absolute;
+  top: 37px;
+  left: 15px;
+  display: block;
+  width: 72px;
+  height: 72px;
+  border-radius: 50%;
+  background-color: #c9cfe0;
+  background-image: url(../img/admin_clipping.png);
+  background-repeat: no-repeat;
+  background-position: -159px -48px;
+  background-size: 387px;
+}
+#today_order:hover,
+#today_payment:hover {
+  color: #55a0ff;
+  text-decoration: none;
+}
+#today_order:hover:before,
+#today_payment:hover:before {
+  background-color: #55a0ff;
+}
+#today_refund:hover {
+  color: #ff6158;
+  text-decoration: none;
+}
+#today_refund:hover:before {
+  background-color: #ff6158;
+}
+b.dash_title {
+  font-size: 16px;
+}
+
+.dash_num {
+  font-size: 13px;
+  color: #97989b;
+  font-weight: normal;
+}
+
+.order_total_amount,
+.pay_total_amount,
+.refund_total_amount {
+  font-size: 28px;
+  font-weight: bold;
+  display: block;
+}
+
+.unit {
+  font-size: 18px;
+  font-weight: normal;
+}
+.card_subtitle {
+  font-size: 14px;
+  color: #969daa;
+}
+.order_dashbox,
+.cancel_dashbox {
+  display: block;
+  padding: 30px 0;
+}
+.order_count {
+  display: block;
+  margin: auto;
+  width: fit-content;
+}
+.order_count {
+  font-size: 36px;
+  font-weight: bold;
+}
+.order_title {
+  display: block;
+  font-size: 16px;
+  font-weight: normal;
+  margin: auto;
+  width: fit-content;
+}
+.cancel_title {
+  display: block;
+  font-size: 16px;
+  font-weight: normal;
+  margin: auto;
+  width: fit-content;
+}
+.order_dashbox:link,
+.order_dashbox:visited {
+  text-decoration: none;
+  color: inherit;
+}
+.order_dashbox:hover,
+.order_dashbox:active {
+  background-color: #55a0ff;
+  color: #fff;
+  text-decoration: none;
+}
+
+.cancel_dashbox:link,
+.cancel_dashbox:visited {
+  text-decoration: none;
+  color: inherit;
+}
+.cancel_dashbox:active,
+.cancel_dashbox:hover {
+  background-color: #ff6158;
+  color: #fff;
+  text-decoration: none;
+}

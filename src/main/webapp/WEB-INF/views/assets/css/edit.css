@@ -1,0 +1,81 @@
+@charset "UTF-8";
+
+		button{
+background: inherit ; border:none; box-shadow:none; border-radius:0; padding:0; overflow:visible; cursor:pointer} 
+		.confirm_content_h32{
+		font-size: 18px;
+		padding-bottom:30px;
+		}
+		.resultbox{
+			
+			margin:0 0 0 20px;
+		}
+		
+		.input_txt{
+		 display:block;
+		 font-size:16px; 
+		  
+         margin-right:16px;
+         margin-top:7px;
+         width:80px;
+		}
+		.editbox_input{
+		padding-bottom:23px;
+		display:flex;
+		
+		}
+		
+		.input_txt_h4{
+		font-size:16px; font-weight: 000;
+		}
+		
+		
+		.input_default{
+		width:138px;
+		height:34px;
+		border: 1px solid #ccc;
+    	border-radius: 4px;
+    	color:#333;
+    	font-size:16px;
+    	padding:4px 8px;
+		}
+		
+		
+		.input_default_txt{
+		height:34px;
+		border: 1px solid #ccc;
+    	border-radius: 4px;
+    
+    	font-size:16px;
+    	padding:4px 8px;
+		}
+		
+		.confirm_button_a3{
+			text-align: center;
+			color:#fff;
+			width:105px;
+			height:44px;
+			border-radius:28px;
+			background:#b1b1b1;
+			margin-right:14px;
+			
+		}
+	.confirm_button_a4{
+	text-align: center;
+	color:#fff;
+	width:105px;
+	height:44px;
+	border-radius:28px;
+	background:#172f50;
+
+	}	
+		
+	.confirm_button_a3:hover{
+	
+	background:#dedede;
+	}
+	
+	.confirm_button_a4:hover{
+	background:#33598c;
+	}
+	

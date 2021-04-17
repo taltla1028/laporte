@@ -1,0 +1,293 @@
+@charset "UTF-8";
+
+.pull_left {
+  float: left;
+}
+.pull_right {
+  float: right;
+}
+.clearfix:after {
+  content: "";
+  display: block;
+  float: none;
+  clear: both;
+}
+.order_tab {
+  width: 100%;
+  height: 54px;
+  background-color: #eee;
+}
+.order_tab_button {
+  padding-top: 10px;
+}
+.order_tab_item {
+  width: 50%;
+  padding-top: 10px;
+  float: left;
+}
+.order_tab_itemlink {
+  display: block;
+  color: #333;
+  font-weight: 700;
+  text-align: center;
+  padding-top: 10px;
+  margin-top: -9px;
+}
+.order_tab_itemlink.selected {
+  height: 43px;
+  border-radius: 9px 9px 0 0;
+  background-color: #fff;
+}
+.order_page01,
+.order_page02 {
+  margin: 30px 20px 0 20px;
+}
+.order_page01 p,
+.order_page01 span,
+.order_page02 p,
+.order_page02 span {
+  font-size: 14px;
+  color: #585858;
+}
+.order_tab_pagenone,
+.order_none {
+  text-align: center;
+  margin-top: 30px;
+}
+.order_none_title {
+  margin: 10px 0 30px 0;
+}
+#order_search_icon {
+  display: inline-block;
+  width: 42px;
+  height: 42px;
+  background-image: url(../img/laporte_clipping.png);
+  background-repeat: no-repeat;
+  background-size: 920px 500px;
+  background-position: -97px -28px;
+  opacity: 0.7;
+}
+.order_list {
+  margin-top: 30px;
+  padding: 0 20px;
+}
+.order_blank {
+  margin: 20px 0 40px 0;
+}
+.order_list01 a,
+.order_list01 p,
+.order_list01 span,
+.order_list02 a,
+.order_list02 p,
+.order_list02 span {
+  font-size: 14px;
+}
+.order_info01,
+.order_info02,
+.order_info03 {
+  margin: 40px 0;
+}
+.order_info01 {
+  text-align: center;
+}
+.order_conditionbox {
+  text-align: center;
+  background-color: #eee;
+  width: 0 auto;
+  border-radius: 10px;
+  padding: 10px 0;
+  height: 50px;
+}
+.order_return {
+  color: #437fb3;
+  height: 30px;
+  vertical-align: text-top;
+}
+#order_icon {
+  display: inline-block;
+  width: 24px;
+  height: 25px;
+  background-image: url(../img/laporte_clipping.png);
+  background-repeat: no-repeat;
+  background-size: 580px 330px;
+  background-position: -473px -63px;
+  opacity: 0.7;
+}
+.order_info03 {
+  position: relative;
+}
+.order_line {
+  border-bottom: 1px solid #eee;
+}
+.order_delivery_info {
+  position: absolute;
+  top: 7px;
+  right: 0;
+  font-size: 18px;
+}
+.order_delivery_product {
+  position: absolute;
+  top: 5px;
+  right: 0;
+  font-size: 18px;
+}
+.order_product {
+  position: absolute;
+  top: 0;
+  right: 0;
+  font-size: 18px;
+}
+.order_hidden {
+  display: none;
+  width: 100%;
+  margin: 20px 0 30px 0;
+}
+.order_itemlist {
+  display: inline-flex;
+  padding-bottom: 30px;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+}
+.order_item_img {
+  width: 30%;
+  margin-right: 20px;
+}
+.order_item {
+  width: 60%;
+}
+.order_item_title {
+  font-weight: 700;
+}
+.order_item_productno {
+  background-color: #333;
+  color: #fff;
+}
+.order_item_price {
+  float: right;
+  font-weight: 700;
+}
+.order_userinfo {
+  margin: 30px 0;
+}
+.order_over_layer {
+  position: fixed;
+  top: 20%;
+  left: 5%;
+  display: none;
+  width: 90%;
+  min-height: 400px;
+  z-index: 8000;
+  background-color: #fff;
+}
+
+.back {
+  display: block;
+  width: 23px;
+  height: 23px;
+  background-image: url(../img/laporte_clipping.png);
+  bacground-repeat: no-repeat;
+  background-size: 640px 360px;
+  background-position: -118px -278px;
+  margin: 10px;
+  text-indent: -10000px;
+}
+.cancel_icon {
+  display: block;
+  width: 25px;
+  height: 27px;
+  background-image: url(../img/laporte_clipping.png);
+  background-size: 640px 360px;
+  background-position: -520px -69px;
+  margin: auto;
+}
+.cancel_title h4, .cancel_title p {
+  margin: auto;
+  width: fit-content;
+  height: 40px;
+  line-height: 40px;
+}
+.form-control {
+	margin:auto;
+	width:85%;
+}
+.cancel_btn {
+  width: 85%;
+  background: #172f50;
+  border: none;
+  padding: 11px 0;
+  border-radius: 25px;
+  margin: auto;
+  display: block;
+  font-size: 16px;
+}
+.btn-primary:hover {
+  color: #fff;
+  background-color: #33598c;
+  border: none;
+}
+.back_box {
+  width: 100%;
+  padding: 10px 15px;
+  font-weight: bold;
+  border-radius: 34px;
+  background: #f1f1f1;
+  margin: auto;
+  cursor: pointer;
+}
+.back_box:hover {
+  background-color: #dedede;
+}
+.form-control {
+  margin-bottom: 20px;
+  height: 45px;
+}
+.form-horizontal {
+  margin-bottom: 10px;
+}
+a.back_link {
+  display: block;
+  margin: auto;
+  width: fit-content;
+  font-weight: normal;
+}
+.back {
+  cursor: pointer;
+}
+.btn_box {
+  margin-bottom: 10px;
+}
+
+
+
+
+
+table {
+  width: 100%;
+}
+th {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  font-size: 14px;
+}
+td {
+  border: 1px solid #dddddd;
+  text-align: left;
+  padding: 8px;
+  font-size: 12px;
+}
+tr:nth-child(even) {
+  background-color: #dddddd;
+}
+.time {
+  width: 30%;
+}
+.where {
+  width: 27%;
+}
+.kind {
+  width: 20%;
+}
+.telno {
+  width: 23%;
+}

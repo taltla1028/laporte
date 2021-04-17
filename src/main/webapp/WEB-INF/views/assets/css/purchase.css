@@ -1,0 +1,636 @@
+@charset "UTF-8";
+
+h3 {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+li {
+  list-style: none;
+}
+
+#purchase {
+  width: 100%;
+  margin: auto;
+}
+
+#purchase button {
+  display: block;
+  width: 80%;
+  height: 45px;
+  border: none;
+  border-radius: 25px;
+  background-color: #e5e5e5;
+  color: #000;
+  margin: auto;
+  margin-top: 20px;
+  font-weight: bold;
+}
+
+#purchase .purchase_btn{
+  background-color: #172f50;
+  color: #fff;	
+}
+
+#purchase .purchase_detail {
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+#purchase .purchase_detail .cart_item_info {
+  margin-bottom: 0;
+}
+
+#purchase .purchase_detail .cart_item_num {
+  display: flow-root;
+  width: 90px;
+  height: 25px;
+  margin-top: 5px;
+  text-align: center;
+  line-height: 25px;
+  font-size: 14px;
+  background-color: #f5f5f5;
+  font-weight: bold;
+}
+
+#purchase .product_revise {
+  display: inline-block;
+  float: right;
+  font-size: 14px;
+  color: #172f50;
+}
+
+#purchase .purchase_msg {
+  width: 100%;
+  height: 70px;
+  border: 1px solid #d5d5d5;
+  margin: auto;
+  font-size: 14px;
+  padding: 12px;
+}
+
+#purchase .purchase_msg #info_icon {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 25px;
+  background-image: url(../img/laporte_clipping.png);
+  background-size: 480px 270px;
+  background-position: -123px -159px;
+  text-indent: -10000px;
+  margin-top: 3px;
+}
+
+#purchase .user_addrinfo{
+	display: block;
+	width: 90%;
+	margin: auto;
+}
+
+#purchase .user_addrinfo_data{
+	display: block;
+	width: 90%;
+	margin: auto;
+	margin-top: 5px;
+	margin-bottom: 20px;
+}
+#purchase .purchase_postcode {
+  width: 90%;
+  margin: auto;
+}
+
+#purchase .purchase_total_price p {
+  display: block;
+  float: left;
+  font-weight: 800;
+}
+
+#purchase .purchase_total_price span {
+  display: inline-block;
+  float: right;
+  font-weight: 800;
+}
+
+#purchase .step_line {
+  width: 100%;
+  margin: 0;
+  margin-top: 15px;
+  border-top: 5px solid #dedede;
+  margin-bottom: 25px;
+}
+
+#purchase .step_label {
+  display: block;
+  border: 3px solid #000;
+  text-align: center;
+  border-radius: 20px;
+  width: 40px;
+  height: 40px;
+  margin: auto;
+  padding-top: 4px;
+  margin-bottom: 20px;
+  margin-top: 20px;
+}
+
+#purchase .step_text {
+  display: block;
+  width: 90%;
+  font-weight: 900;
+  line-height: 5px;
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#purchase .delivery_pc_add {
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+#purchase .loc_icon {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 25px;
+  background-image: url(../img/laporte_clipping.png);
+  background-size: 548px 308px;
+  background-position: -182px -141px;
+  margin: 10px;
+  text-indent: -10000px;
+}
+
+#purchase #pc_address_input{
+	font-size: 14px;
+}
+
+#purchase .delivery_pc_add p {
+  display: block;
+  width: 75%;
+  float: left;
+  font-size: 14px;
+  margin-top: 5px;
+}
+
+#purchase .delivery_type_select {
+  width: 90%;
+  min-height: 100px;
+  margin: auto;
+  border: 1px solid #333333;
+  padding: 10px;
+}
+
+#purchase .delivery_type_select #delivery_icon {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 25px;
+  background-image: url(../img/laporte_clipping.png);
+  background-size: 640px 360px;
+  background-position: -212px -306px;
+  margin: 10px;
+  text-indent: -10000px;
+}
+
+#purchase .delivery_type_select input {
+  display: block;
+  float: left;
+}
+
+#purchase .delivery_type_select label {
+  display: block;
+  float: left;
+  text-indent: 10px;
+  font-size: 14px;
+}
+
+#purchase .delivery_price {
+  display: block;
+  float: right;
+  font-size: 14px;
+}
+
+#purchase .delivery_type_select .est_delivery_date {
+  display: block;
+  margin: 10px;
+  font-size: 14px;
+  font-weight: 800;
+}
+
+#purchase #purchase_del_type .del_service_cost {
+  display: block;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 20px;
+}
+#purchase #mydelinfo_summary {
+  width: 100%;
+  margin: auto;
+}
+
+#purchase #mydelinfo_summary span {
+  display: block;
+  width: 80%;
+  margin-left: 28px;
+  margin-top: 20px;
+  line-height: 20px;
+  font-weight: 800;
+}
+
+#purchase #mydelinfo_summary h4 {
+  display: block;
+  margin: auto;
+  margin-top: 20px;
+  width: 90%;
+}
+
+#purchase #mydelinfo_summary a {
+  display: block;
+  margin-right: 30px;
+}
+
+#purchase #mydelinfo_summary ul {
+  display: block;
+  width: 91%;
+  margin: auto;
+  margin-top: 15px;
+  margin-bottom: 15px;
+}
+
+#purchase #mydelinfo_summary li {
+  margin-top: 5px;
+}
+
+#purchase #mydelinfo_summary .loc_icon {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 25px;
+  background-image: url(../img/laporte_clipping.png);
+  background-size: 548px 308px;
+  background-position: -182px -141px;
+  margin: 10px;
+  text-indent: -10000px;
+}
+
+#purchase #mydelinfo_summary .cal_icon {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 25px;
+  background-image: url(../img/laporte_clipping.png);
+  background-size: 548px 308px;
+  background-position: -445px -20px;
+  margin: 10px;
+  text-indent: -10000px;
+}
+
+#purchase #mydelinfo_summary div {
+  display: inline-block;
+}
+
+#purchase #purchase_del_type .del_service_cost .delivery_price {
+  font-size: 16px;
+}
+
+#purchase_delivery_first,
+#purchase_delivery_sec,
+#purchase_delivery_third {
+  width: 90%;
+  margin: auto;
+  margin-top: 20px;
+}
+
+#purchase #purchase_delivery_first .delivery_address_li p {
+  display: block;
+  width: 90%;
+  margin: auto;
+  margin-bottom: 5px;
+}
+
+#purchase #purchase_delivery_first .delivery_address_li input {
+  display: block;
+  width: 90%;
+  height: 38px;
+  margin: auto;
+  border-radius: 5px;
+}
+
+#purchase #purchase_delivery_sec p {
+  margin-top: 20px;
+  font-weight: 800;
+  line-height: 23px;
+}
+
+#purchase #purchase_delivery_sec .purchase_delivery {
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+#purchase #purchase_delivery_sec .delivery_type_li {
+  display: block;
+}
+
+#purchase #purchase_delivery_sec input {
+  display: inline-block;
+}
+
+#purchase #purchase_delivery_sec span {
+  display: inline-block;
+  margin-left: 10px;
+}
+
+#purchase #purchase_delivery_sec .detail_text {
+  display: block;
+  margin: auto;
+  margin-top: 10px;
+  width: 90%;
+  height: 65px;
+}
+
+#datepicker-always-visible {
+  display: block;
+  margin-top: 70px;
+  width: 255px;
+}
+
+#purchase #purchase_delivery_third .step_text {
+  display: block;
+  width: 90%;
+  font-weight: 900;
+  line-height: 20px;
+  text-align: center;
+  margin: auto;
+  margin-top: 30px;
+  margin-bottom: 30px;
+  font-size: 16px;
+}
+
+#purchase #purchase_delivery_third #delivery_icon2 {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 25px;
+  background-image: url(../img/laporte_clipping.png);
+  background-size: 640px 360px;
+  background-position: -165px -260px;
+  margin: 10px;
+  text-indent: -10000px;
+}
+
+#purchase #purchase_delivery_third h4 {
+  padding-top: 8px;
+}
+
+#purchase #purchase_delivery_third p {
+  display: block;
+  margin-left: 2px;
+  font-size: 14px;
+  line-height: 10px;
+}
+
+#purchase #purchase_delivery_third .delivery_price_1 {
+  display: inline-block;
+  float: right;
+  position: relative;
+  bottom: 35px;
+}
+
+#purchase #purchase_delivery_third .delivery_price {
+  display: block;
+  font-size: 16px;
+}
+
+#purchase #purchase_delivery_third .delivery_final_price,
+#purchase #purchase_delivery_third .purchase_final_price,
+#purchase #purchase_delivery_third #delandpur_final_price {
+  display: block;
+  float: right;
+}
+
+#purchase #purchase_delivery_third .est_delivery_date {
+  display: block;
+  width: 90%;
+  font-weight: 900;
+  margin-top: 10px;
+  text-indent: 20px;
+}
+
+#purchase .select {
+  display: block;
+  margin-top: 20px;
+}
+
+#purchase #purchase_delivery_third .select span {
+  display: inline-block;
+  margin-top: 10px;
+}
+
+#purchase #purchase_delivery_third .delivery_time_li {
+  display: block;
+  width: 90%;
+  margin: auto;
+}
+
+#purchase #purchase_delivery_third .delivery_time_li:last-child {
+  margin-bottom: 20px;
+}
+
+#purchase #purchase_delivery_third .delivery_time_li .delivery_time {
+  display: inline-block;
+}
+
+#purchase #purchase_delivery_third .delivery_time_li span {
+  display: inline-block;
+  margin-left: 5px;
+}
+
+#purchase #purchase_delivery_third .purchase_service_cost {
+  display: block;
+  margin: 0 15px 20px 5px;
+}
+
+#purchase #purchase_delivery_third .purchase_service_cost span {
+  margin-left: 0;
+}
+
+#purchase #purchase_delivery_third .purchase_total_cost {
+  display: block;
+  margin: 15px;
+  margin-left: 0;
+}
+
+#purchase .purchase_summary .price_won {
+  display: block;
+  float: right;
+  margin-right: 3px;
+}
+
+#purchase .purchase_summary .purchase_summary_coupon,
+#purchase .purchase_summary .purchase_summary_point {
+  display: block;
+  width: 100%;
+  font-size: 14px;
+  margin-top: 20px;
+}
+
+#purchase .purchase_summary select {
+  display: inline-block;
+  width: 100%;
+  height: 35px;
+  margin-top: 10px;
+}
+
+#purchase .purchase_summary input {
+  display: inline-block;
+  width: 100%;
+  height: 35px;
+}
+
+#purchase .purchase_summary .point_useall {
+  display: inline-block;
+  width: 32%;
+  color: #000;
+  background-color: #f5f5f5;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+#purchase .purchase_summary .point_reset {
+  display: inline-block;
+  width: 32%;
+  color: #FFF;
+  background-color: #cebea7;
+  border-radius: 20px;
+  font-size: 12px;
+}
+
+#purchase #purchase_delivery_third .point_left {
+  display: inline-block;
+  font-size: 12px;
+  margin: 0;
+  margin-top: 10px;
+}
+
+#purchase #purchase_delivery_third #user_point {
+  font-weight: bold;
+}
+
+#purchase #purchase_delivery_third .point_info {
+  line-height: 20px;
+  margin: 0;
+  margin-top: 5px;
+  font-size: 12px;
+  color: #333333;
+}
+
+#purchase #myinfo_summary {
+  width: 100%;
+  margin: auto;
+}
+
+#purchase #myinfo_summary h4 {
+  margin: 20px;
+}
+
+#purchase #myinfo_summary a {
+  margin-right: 18px;
+  position: relative;
+  bottom: 40px;
+}
+
+#purchase #myinfo_summary li {
+  display: block;
+  width: 90%;
+  margin: auto;
+  line-height: 20px;
+  border-bottom: 1px solid #e5e5e5;
+}
+
+#purchase #myinfo_summary li:last-child {
+  border: none;
+}
+
+#purchase #myinfo_summary li span {
+  display: inline-block;
+  float: left;
+  margin-top: 2px;
+}
+
+#my_icon,
+#email_icon,
+#phone_icon {
+  display: block;
+  float: left;
+  width: 25px;
+  height: 25px;
+  background-image: url(../img/laporte_clipping.png);
+  background-size: 480px 270px;
+  text-indent: -10000px;
+  margin-top: 10px;
+}
+
+#purchase #myinfo_summary #my_icon {
+  background-position: -160px -17px;
+  margin-top: 7px;
+  margin-right: 5px;
+}
+
+#purchase #myinfo_summary #email_icon {
+  background-position: -159px -55px;
+  margin-top: 10px;
+  margin-right: 3px;
+}
+
+#purchase #myinfo_summary #phone_icon {
+  background-position: -159px -88px;
+  margin-top: 7px;
+  margin-right: 5px;
+}
+
+#purchase #myinfo_summary li p {
+  display: inline-block;
+  float: left;
+}
+
+#purchase #myinfo_summary .loc_icon {
+  margin: 0;
+  margin-top: 5px;
+  margin-right: 2px;
+}
+
+#purchase #paytype, #purchase #final_total_price{
+	border: none;
+	color: #000;
+	height:0;
+}
+#purchase .purchase_payment h4 {
+  margin: 20px;
+}
+
+#purchase .purchase_payment .payment_type_btn {
+  width: 100%;
+  margin: auto;
+}
+
+#purchase .purchase_payment input {
+  display: inline-block;
+  width: 40%;
+  height: 45px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 30px;
+  margin: 2% 0 2% 6%;
+  background-color: #fff;
+  color: #000;
+  border: 1px solid #e5e5e5;
+}
+
+#purchase .purchase_payment input:focus {
+  outline: none;
+  background-color: #333333;
+  color: #fff;
+}

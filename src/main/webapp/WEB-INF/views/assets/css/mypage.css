@@ -1,0 +1,366 @@
+@charset "UTF-8";
+
+li{
+	list-style: none;
+}
+
+.coupon_list{
+	display: block;
+	border: 1px solid #dedede;
+	margin-bottom: 20px;
+	padding: 15px;
+}
+
+.coupon_type{
+	display:inline-block;
+	font-size: 14px;
+	margin-left: 2px;
+}
+
+.coupon_name{
+	font-weight: bold;
+}
+
+.profile_header {
+  margin: 45px 15px 25px 15px;
+}
+.profile_logout_box {
+  font-size: 14px;
+}
+.pofile_logout_link {
+  text-decoration: underline;
+}
+.profile_body {
+  padding-right: 10px;
+  padding-left: 10px;
+  margin-right: auto;
+  margin-left: auto;
+}
+.profile_link_box {
+  margin: 10px 0;
+}
+.profile_bolder {
+  border: 1px solid #d5d5d5;
+  border-radius: 5px;
+  padding: 0 15px;
+}
+.profile_link_a {
+  display: block;
+  width: 100%;
+  height: 100%;
+}
+.profile_link {
+  height: 100%;
+  padding: 25px 0;
+}
+.profile_link_title {
+  display: block;
+}
+.profile_link_status {
+  display: block;
+  font-size: 14px;
+}
+.profile_arrow_icon {
+  display: block;
+  width: 23px;
+  height: 23px;
+  background-image: url(../img/laporte_clipping.png);
+  background-size: 414px 250px;
+  background-position: -103px -112px;
+  margin: 10px 0;
+}
+.row {
+  margin-bottom: 30px;
+}
+
+/*------------------탭박스 --------------------*/
+.nav-tabs {
+  border: none;
+}
+.nav-tabs > li {
+  width: 30%;
+}
+.nav-tabs > li.active > a,
+.nav-tabs > li.active > a:focus,
+.nav-tabs > li.active > a:hover {
+  border: none;
+  border-bottom: 2px solid #172f50;
+}
+.nav-tabs > li > a:hover {
+  font-weight: bold;
+}
+.nav-tabs > li > a {
+  border: none;
+}
+.nav > li > a {
+  padding: 10px 0px;
+  border-bottom: 2px solid #d5d5d5;
+  font-weight: bold;
+}
+.profile_li + .profile_li {
+  margin-left: 5%;
+}
+#setting {
+  margin-right: 0;
+}
+
+.nav > li > a:focus,
+.nav > li > a:hover {
+  font-weight: bold;
+}
+
+/*-------탭 컨텐츠 -----*/
+.content_box {
+  margin: 20px 0;
+  border-bottom: 1px solid #f5f5f5;
+  padding: 20px 0;
+}
+.prof_title {
+  font-weight: bold;
+}
+.alter_btn {
+  background: none;
+  border: none;
+  color: #333;
+  text-decoration: underline;
+  font-weight: bold;
+}
+div p {
+  font-size: 14px;
+  display: block;
+  margin: 0;
+  height: 26px;
+}
+.profile_title {
+  margin-bottom: 10px;
+}
+
+/*---------- 수정박스 ----------*/
+label {
+  font-size: 12px;
+}
+form .form-control,
+form select {
+  width: 100%;
+  height: 30px;
+  border: none;
+  border-bottom: 1px solid #929292;
+  box-shadow: none;
+  outline: none;
+  margin-bottom: 25px;
+  border-radius: 0;
+  color: #333;
+  opacity: 1;
+  padding: 0;
+  font-size: 14px;
+  text-indent: 3px;
+}
+form .form-control {
+  text-indent: 2px;
+}
+form select {
+  text-indent: 31px;
+}
+form .form-control:focus,
+form select:hover {
+  box-shadow: none;
+  border-bottom: 1px solid #172f50;
+  color: #172f50;
+  background: none;
+}
+.select_label_ani {
+  transition: 0.5s all ease;
+  -ms-transition: 0.5s all ease; /*IE 9*/
+  -webkit-transition: 0.5s all ease; /* 사파리 or 크롬 */
+  transform: translate(5px, 26px) scale(1.1);
+  -ms-transform: translate(5px, 26px) scale(1.1); /*IE 9*/
+  -webkit-transform: translate(5px, 26px) scale(1.1); /* 사파리 or 크롬 */
+}
+button:target,
+button:hover,
+button:focus,
+button:active {
+  border: none;
+  outline: none;
+}
+
+.edit_btn_cancel {
+  color: #000;
+  background-color: #f1f1f1;
+  border: none;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+  margin-bottom: 15px;
+}
+.edit_btn_save {
+  color: #fff;
+  background-color: #172f50;
+  border: none;
+  width: 100%;
+  height: 50px;
+  border-radius: 25px;
+}
+
+/*------비밀번호 수정하기 박스 -------*/
+.pw_hide_icon {
+  display: block;
+  width: 25px;
+  height: 25px;
+  background-image: url(../img/laporte_clipping.png);
+  background-repeat: no-repeat;
+  background-size: 544px 296px;
+  background-position: -101px -57px;
+  text-indent: -10000px;
+}
+.pw_show_icon {
+  display: block;
+  width: 26px;
+  height: 26px;
+  background-image: url(../img/laporte_clipping.png);
+  background-repeat: no-repeat;
+  background-size: 552px 306px;
+  background-position: -102px -20px;
+  text-indent: -10000px;
+}
+.showPassword {
+  width: 25px;
+  height: 25px;
+  display: block;
+  margin: 0;
+  position: absolute;
+  right: 1px;
+  top: 30px;
+  background: none;
+  border: none;
+}
+.pwd_input_box {
+  position: relative;
+  margin-bottom: 20px;
+}
+.pwd_label {
+  color: #111;
+  font-weight: normal;
+}
+.placeholder_event {
+  transition: 0.4s all ease;
+  -ms-transition: 0.4s all ease; /*IE 9*/
+  -webkit-transition: 0.4s all ease; /* 사파리 or 크롬 */
+  transform: translate(8px, 26px) scale(1.2);
+  -ms-transform: translate(8px, 26px) scale(1.2); /*IE 9*/
+  -webkit-transform: translate(8px, 26px) scale(1.2); /* 사파리 or 크롬 */
+}
+.new_pw_valid > span {
+  display: block;
+  font-size: 12px;
+  color: #333;
+  padding-bottom: 5px;
+}
+.new_pw_valid {
+  margin-left: 20px;
+}
+.new_pw_alert {
+  margin-top: -18px;
+  display: block;
+  font-size: 14px;
+  margin-bottom: 14px;
+}
+.red_line {
+  border-bottom: 1px solid #f74b4b !important;
+}
+.new_pwd_conf_alert {
+  color: #f74b4b;
+  font-size: 14px;
+  margin-top: -20px;
+  display: block;
+}
+
+/*-------------주소 수정 --------------*/
+#find_pc {
+  color: #000;
+  background-color: #cebea7;
+  border: none;
+  width: 70%;
+  height: 55px;
+  border-radius: 30px;
+  font-weight: bold;
+  margin: 15px 0;
+}
+
+#wrap {
+  width: 100% !important;
+}
+#daum_pc_find {
+  width: 100%;
+  margin: auto;
+}
+
+.form-control[disabled] {
+  opacity: 0.5;
+  background: none;
+}
+
+/*--------------마케팅 박스 --------------------*/
+.marketing_box {
+  padding-bottom: 30px;
+}
+.mkt_row {
+  padding: 10px 0;
+}
+.mkt_row + .mkt_row {
+  border-top: 1px solid #f5f5f5;
+}
+.delete_persuade {
+  display: block;
+  line-height: 25px;
+  margin: 10px 0;
+  height: fit-content;
+}
+.mkt {
+  font-size: 14px;
+  display: block;
+}
+.mkt_status {
+  display: block;
+}
+.delete_user {
+  font-weight: bold;
+}
+.delete_user:hover {
+  text-decoration: underline;
+}
+.mkt_title {
+  margin-bottom: 5px;
+  display: block;
+}
+.mkt_txt {
+  font-size: 14px;
+  padding-bottom: 10px;
+  display: block;
+  line-height: 25px;
+}
+.mkt_ck_box {
+  padding: 10px 0;
+}
+.mkt_ck_box label {
+  font-size: 15px;
+  font-weight: normal;
+}
+input[type="checkbox"] + label.checkbox_circle {
+  display: block;
+  background-image: url(../img/laporte_clipping.png);
+  width: 108px;
+  height: 25px;
+  background-size: 521px 326px;
+  background-position: -422.2px -148.6px;
+  margin: 0;
+  text-indent: 29px;
+  line-height: 25px;
+}
+input[type="checkbox"]:checked + label.checkbox_circle {
+  background-position: -422.2px -191.6px;
+}
+
+.delete_user_box{
+	 margin-top: 30px;
+}

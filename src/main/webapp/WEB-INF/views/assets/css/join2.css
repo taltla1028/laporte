@@ -1,0 +1,256 @@
+@charset "UTF-8";
+
+#join {
+	height: 600px;
+}
+
+#join>.header {
+	width: 100%;
+	height: 170px;
+	padding-top : 50px;
+	background-color: #CEBEA7;
+	margin-bottom: 33px;
+}
+
+input {
+	margin: auto;
+	opacity: 0.7;
+	text-indent: 1px;
+}
+
+input:focus {
+	outline: none;
+	opacity: 1;
+}
+
+select{
+	text-indent: 5px;
+}
+p {
+	width: 80%;
+	margin: auto;
+	font-size: 16px;
+	line-height: 20px;
+	font-weight: bold;
+	color: #111111;
+}
+
+label {
+	margin-top: 20px;
+	font-size: 14px;
+}
+
+.box{
+	margin-bottom: 45px;	
+}
+
+form .form-control, form select {
+	width: 100%;
+	height: 30px;
+	border: none;
+	border-bottom: 1px solid #929292;
+	box-shadow: none;
+	outline: none;
+	border-radius: 0;
+	color: #333;
+	opacity: 1;
+	padding: 0;
+	font-size: 14px;
+}
+
+form .form-control {
+	text-indent: 2px;
+}
+
+form select {
+	text-indent: -1px;
+}
+
+form .form-control:focus, form select:hover {
+	box-shadow: none;
+	border-bottom: 1px solid #172f50;
+	color: #172f50;
+	background: none;
+}
+
+.placeholder_event {
+  transition: 0.4s all ease;
+  -ms-transition: 0.4s all ease; /*IE 9*/
+  -webkit-transition: 0.4s all ease; /* 사파리 or 크롬 */
+  transform: translate(8px, 26px) scale(1.2);
+  -ms-transform: translate(8px, 26px) scale(1.2); /*IE 9*/
+  -webkit-transform: translate(8px, 26px) scale(1.2); /* 사파리 or 크롬 */
+}
+
+
+.select_label_ani {
+	transition: 0.5s all ease;
+	-ms-transition: 0.5s all ease; /*IE 9*/
+	-webkit-transition: 0.5s all ease; /* 사파리 or 크롬 */
+	transform: translate(5px, 26px) scale(1.1);
+	-ms-transform: translate(5px, 26px) scale(1.1); /*IE 9*/
+	-webkit-transform: translate(5px, 26px) scale(1.1); /* 사파리 or 크롬 */
+}
+
+.userinfo_insert {
+	width: 80%;
+	margin: auto;
+}
+
+.userinfo_insert #join_id_input{
+	width: 68%;
+	margin: 0;
+	margin-bottom: 45px;
+}
+
+.userinfo_insert #id_check {
+	display: inline-block;
+	height: 35px;
+	width: 30%;
+	position: relative;
+	bottom: 40px;
+	float:right;
+	background-color: #172F50;
+	color: #fff;
+	font-size: 12px;
+	margin: 0;
+}
+
+li {
+	display: block;
+	margin: auto;
+	margin-top: 3px;
+}
+
+span {
+	display: inline-block;
+	width: auto;
+	font-size : 13px;
+	color: #d5d5d5;
+	font-size: 13px;
+}
+
+#joinForm .pw_input{
+	margin-bottom: 3px;	
+}
+
+#join_password_same {
+	display: block;
+	margin: auto;
+	margin-top: 5px;
+	font-size: 13px;
+	color: #d5d5d5;
+}
+
+#join>.header  h5 {
+	display: block;
+	padding-left: 20px;
+}
+
+input:focus {
+	outline: none;
+	opacity: 1;
+}
+
+#join>.header>a {
+	display: block;
+	padding: 10px;
+}
+
+#join>.header>a>#d_icon_l {
+	display: block;
+	width: 23px;
+	height: 23px;
+	background-image: url(../img/laporte_clipping.png);
+	background-repeat: no-repeat;
+	background-size: 640px 360px;
+	background-position: -118px -277.4px;
+	margin: 10px;
+	text-indent: -10000px;
+}
+
+button {
+	display: block;
+	width: 100%;
+	height: 45px;
+	border: none;
+	border-radius: 50px;
+	margin: auto;
+	margin-top: 20px;
+	font-size: 14px;
+	font-weight: bold;
+}
+
+button:focus {
+	outline: none;
+}
+
+#join .section {
+	height: 280px;
+}
+
+#join_btn {
+	background-color: #172F50;
+	color: #ffffff;
+}
+
+#join_btn:hover {
+	background-color: #33598c;
+}
+
+#join_btn:focus {
+	border: none;
+}
+
+#join .footer {
+	color: rgb(105, 105, 105);
+	text-align: center;
+	margin-top: 30px;
+}
+
+#join .footer a {
+	color: rgb(105, 105, 105);
+	text-decoration: underline;
+	font-size: 12px;
+}
+
+/*-------------주소 입력 --------------*/
+#contact_address_box {
+	width: 100%;
+	margin: auto;
+	margin-top: 20px;
+}
+
+#find_pc {
+	color: #000;
+	background-color: #cebea7;
+	border: none;
+	width: 100%;
+	height: 45px;
+	border-radius: 30px;
+	font-weight: bold;
+	margin: auto;
+}
+
+#wrap {
+	width: 100% !important;
+}
+
+#daum_pc_find {
+	width: 100%;
+	margin: auto;
+	margin-top: 20px;
+}
+
+.form-control[disabled] {
+	opacity: 0.5;
+	background: none;
+}
+
+.btn_reset {
+	margin: auto;
+	margin-top: 20px;
+	font-size: 14px;
+	font-weight: bold;
+	width: 100%;
+}

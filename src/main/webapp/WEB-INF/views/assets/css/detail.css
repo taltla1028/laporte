@@ -1,0 +1,398 @@
+@charset "UTF-8";
+/*------------페이지 위치--------------- */
+.page-header {
+	margin: 10px 0;
+	padding: 0;
+}
+
+.breadcrumb {
+	background: none;
+	margin-bottom: 10px;
+}
+
+.breadcrumb>li, .breadcrumb>.active, .breadcrumb a {
+	color: #333;
+	font-size: 14px;
+}
+
+.breadcrumb>li+li:before {
+	content: "";
+	background-image: url(../img/laporte_clipping.png);
+	display: inline-block;
+	width: 25px;
+	height: 10px;
+	background-size: 277px 137px;
+	background-position: -147.2px -43.6px;
+}
+
+/*------------제품 사진 슬라이더 플러그인  ----------------*/
+.container .swiper-container {
+	padding-bottom: 20px;
+}
+
+.container .swiper-container-horizontal>.swiper-scrollbar {
+	height: 2.5px;
+	overflow: hidden;
+	background: #f2f2f2;
+}
+
+.container .swiper-scrollbar-drag {
+	background: #111;
+}
+
+/*------------상품 상세 박스--------------- */
+.detail_buy_module {
+	padding: 35px 0;
+}
+
+.detail_info_name {
+	width: 100%;
+	margin: 5px 0;
+}
+
+.detail_info_text {
+	font-size: 14px;
+	display: block;
+}
+
+.review_btn {
+	padding: 10px 0;
+}
+
+.star1_icon {
+	background-image: url(../img/laporte_clipping.png);
+	display: inline-block;
+	width: 19px;
+	height: 22px;
+	background-size: 429px 243px;
+	background-position: -275.2px -138.6px;
+}
+
+.star2_icon {
+	background-image: url(../img/laporte_clipping.png);
+	display: inline-block;
+	width: 19px;
+	height: 22px;
+	background-size: 429px 243px;
+	background-position: -275.2px -172.6px;
+}
+
+.review_num {
+	font-size: 14px;
+    color: #172f50;
+    width: 25px;
+    height: 40px;
+    display: inline-block;
+    padding-left: 8px;
+    line-height: 40px;
+}
+
+.wish {
+	background-image: url(../img/laporte_clipping.png);
+	display: block;
+	width: 34px;
+	height: 33px;
+	background-size: 763px 494px;
+	background-position: -27.2px -93.6px;
+}
+
+input[type="checkbox"]+label.heart {
+	display: block;
+	background-image: url(../img/laporte_clipping.png);
+	height: 39px;
+	background-size: 763px 494px;
+	background-position: -24.2px -88.6px;
+	width: 39px;
+	margin: auto;
+}
+
+input[type="checkbox"]:checked+label.heart {
+	background-position: -1069px -416.6px;
+}
+/*------------상품상세 텍스트 영역 --------------*/
+.product_info_txt {
+	margin-top: 10px;
+	border-top: 1px solid #d5d5d5;
+	border-bottom: 1px solid #d5d5d5;
+}
+
+.product_available {
+	position: relative;
+	height: 65px;
+	border-bottom: 1px solid #d5d5d5;
+}
+
+.delivery_txt {
+	display: inline-block;
+	position: absolute;
+	top: 7px;
+	left: 42px;
+	line-height: 24px;
+}
+
+.delivery_icon {
+	background-image: url(../img/laporte_clipping.png);
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background-size: 600px 397px;
+	background-position: -153.2px -282.6px;
+	position: absolute;
+	top: 9px;
+	left: 7px;
+}
+
+.product_return {
+	position: relative;
+	height: 90px;
+	margin-bottom: 30px;
+}
+
+.return_icon {
+	background-image: url(../img/laporte_clipping.png);
+	display: inline-block;
+	width: 25px;
+	height: 25px;
+	background-size: 600px 397px;
+	background-position: -486.2px -129.6px;
+	position: absolute;
+	top: 9px;
+	left: 7px;
+}
+
+.return_txt {
+	display: inline-block;
+	position: absolute;
+	top: 7px;
+	left: 42px;
+	line-height: 24px;
+}
+
+.detail_text {
+	color: #333;
+	width: 95%;
+	margin: auto;
+	margin-bottom: 40px;
+}
+
+.detail_text p {
+	line-height: 25px;
+}
+
+.product_num {
+	background: #f5f5f5;
+	width: 65px;
+	height: 25px;
+	line-height: 25px;
+	margin: 30px 5px;
+	padding: 0 10px;
+	font-weight: bold;
+}
+
+/*------------아코디언--------------- */
+#accordion {
+	margin-bottom: 50px;
+}
+
+.panel {
+	border: 0;
+	-webkit-box-shadow: none;
+	box-shadow: none;
+}
+
+.panel-heading {
+	margin: 0;
+	padding: 0;
+}
+
+.panel-heading a {
+	width: 100%;
+	height: 80px;
+	display: block;
+	text-indent: 5px;
+	font-weight: bold;
+}
+
+.detail_dropdown_icon {
+	width: 24px;
+	height: 17px;
+	background-image: url(../img/laporte_clipping.png);
+	background-size: 320px 180px;
+	background-position: -27.2px -51.6px;
+	display: block;
+	position: absolute;
+	top: 30px;
+	right: 10px;
+}
+
+.panel-default {
+	border-color: #fff;
+}
+
+.panel-default>.panel-heading {
+	background-color: #fff;
+	border-bottom: 1px solid #d5d5d5;
+	position: relative;
+}
+
+.panel-title {
+	line-height: 80px;
+}
+
+.panel-group .panel-heading+.panel-collapse>.panel-body {
+	border: 0;
+}
+
+.panel-default>.panel-heading+.panel-collapse>.panel-body {
+	border: 0;
+}
+
+#collapseThree>.panel-body {
+	height: 300px;
+	overflow: auto;
+}
+/*------------최근 본 제품 --------------*/
+.recntly_img {
+	width: 60px;
+	height: 60px;
+}
+
+/*------------공통버튼--------------- */
+.btn-link, .btn-link:active, .btn-link:focus, .btn-link:hover,
+	.btn-primary {
+	text-decoration: none;
+	outline: none;
+	cursor: pointer;
+}
+
+.btn-primary {
+	height: 44px;
+	padding: 0px 90px;
+	background-color: #172f50;
+	border-radius: 25px;
+	margin: 0;
+	border: none;
+	width: 80%;
+}
+
+.detail_wish_add_btn {
+	padding: 4px;
+	margin-right: 20px;
+}
+
+/* -------맨위로 이동 버튼 --------*/
+.totop {
+	width: fit-content;
+	height: 40px;
+	font-size: 18px;
+	font-weight: bold;
+	border: 2px solid;
+	border-radius: 25px;
+	padding: 5px 15px;
+	margin: auto;
+}
+
+.totop_box {
+	margin: 25px 0;
+}
+
+.heart_box {
+	width: 20%;
+}
+
+/* -------------리뷰 모달 ----------- */
+/* 위시리스트 모달윈도우 */
+/* 화면 전체를 덮는 배경 레이어의 위치, 크기, 투명도 지정 > 기본적으로 표시x */
+.review_gray_layer {
+	position: fixed;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	z-index: 800;
+	background: hsla(0, 0%, 100%, .75);
+	display: none;
+}
+/* 메뉴가 표현될 레이어를 화면좌측에 배치 > 기본적으로 표시x */
+.review_over_layer {
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100%;
+	z-index: 1000;
+	display: none;
+	background-color: #fff;
+	overflow: auto;
+	height: 100%;
+	padding: 20px;
+}
+
+.review_close_button,
+.review_write_close_button {
+	display: block;
+	width: 20px;
+	height: 20px;
+	background: url(../img/laporte_clipping.png);
+	background-size: 389px 230px;
+	background-position: -182px -133px;
+	position: absolute;
+	top: 30px;
+	right: 20px;
+}
+
+.sale_before {
+	text-decoration: line-through;
+	font-size: 15px;
+}
+
+.sale_info {
+	font-size: 20px;
+	font-weight: bold;
+}
+
+.group_info {
+	color: #ff0000;
+	font-size: 17px;
+}
+
+.best_mark {
+	background-color: #ffdb00;
+	box-shadow: 2px 2px #e00751;
+	float: right;
+	padding: 0 5px;
+}
+.sale_price_box{
+	float:right;
+}
+
+.price_font{
+	font-size: 20px;
+    font-weight: bold;
+}
+.btn > .avg_all_star{
+	    float: left;
+}
+.revcomment_box{
+	padding-top: 20px;
+}
+.answer_date{
+	font-size: 14px;
+}
+.revcomment_content{
+	    padding-top: 10px;
+}
+
+.home_wishlist_loc input[type=checkbox]+label.heart {
+	display: block;
+	width: 22px;
+	height: 18px;
+	background-image: url(../img/laporte_clipping.png);
+	background-repeat: no-repeat;
+	background-size: 480px 270px;
+	background-position: -266px -194px;
+	float: right;
+}
+
+.home_wishlist_loc input[type=checkbox]:checked+label.heart {
+	background-position: -266px -225px;
+}

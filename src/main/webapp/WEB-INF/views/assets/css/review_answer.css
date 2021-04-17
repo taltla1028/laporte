@@ -1,0 +1,40 @@
+@charset "UTF-8";
+.card-body .product_info_table {
+  vertical-align: middle;
+  margin-bottom: 25px;
+}
+.card-body .info_table_color {
+  background-color: #f5f5f5;
+  vertical-align: middle;
+}
+.input-group label {
+  padding: 0 10px;
+  font-weight: normal !important;
+}
+.input-group input {
+  margin: 0 5px;
+}
+#review_notes {
+  width: 70%;
+  height: 150px;
+  margin: 5px;
+}
+.review_answer_add_btn {
+  margin-bottom: 30px;
+  width: fit-content;
+  padding: 10px 50px;
+}
+.btn_box {
+  margin: auto;
+  width: fit-content;
+}
+.delete_revcomment{
+	display: inline-block;
+    padding: 10px 50px;
+}
+.review_answer_edit_btn{
+	width: fit-content;
+    padding: 10px 50px;
+    display: inline-block;
+    margin: 0 30px;
+}

@@ -1,0 +1,289 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="OrderlistMapper">
+
+    <!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+    <resultMap id="orderlistMap"
+        type="com.project.laporte.model.Orderlist">
+        <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+        <result property="orderno" column="orderno" />
+        <result property="addr1" column="addr1" />
+        <result property="addr2" column="addr2" />
+        <result property="postcode" column="postcode" />
+        <result property="name" column="name" />
+        <result property="email" column="email" />
+        <result property="phoneno" column="phoneno" />
+        <result property="loctype" column="loctype" />
+        <result property="servicetype" column="servicetype" />
+        <result property="request" column="request" />
+        <result property="sizelimit" column="sizelimit" />
+        <result property="deldate" column="deldate" />
+        <result property="paytype" column="paytype" />
+        <result property="totalprice" column="totalprice" />
+        <result property="usrcouponno" column="usrcouponno" />
+        <result property="point" column="point" />
+        <result property="userno" column="userno" />
+        <result property="deltypeno" column="deltypeno" />
+        <result property="orderstatus" column="orderstatus" />
+        <result property="paystatus" column="paystatus" />
+        <result property="regdate" column="regdate" />
+        <result property="editdate" column="editdate" />
+        <result property="ccdate" column="ccdate" />
+        <result property="ccstatus" column="ccstatus" />
+        <result property="delistatus" column="delistatus" />
+
+        <!--deltype(배송 유형) 테이블과 조인  -->
+        <result property="d_name" column="d_name" />
+        <result property="d_price" column="d_price" />
+
+        <!-- coupon(쿠폰) 테이블과 조인 -->       
+        <result property="couponno" column="couponno" />
+        <result property="c_name" column="c_name" />
+        <result property="discount" column="discount" />
+        <result property="distype" column="ditype" />
+        
+        <!-- product(제품) 테이블과 조인 -->
+        <result property="prodno" column="prodno" />
+        <result property="pname" column="pname" />
+        <result property="ea" column="ea" />
+        <result property="price" column="price" />
+        <result property="size" column="size" />
+        <result property="color" column="color" />
+        
+        <!-- firstimg(제품이미지) 테이블과 조인 -->
+        <result property="thumbnailUrl" column="thumbnailUrl" />
+
+		<!-- delivery(배송) 테이블과 조인 --> 
+        <result property="deliveryno" column="deliveryno" />
+        <result property="deliverydate" column="deliverydate" />
+        <result property="deliverystatus" column="deliverystatus" />
+        <result property="trackingnum" column="trackingnum" />
+    </resultMap>
+
+	<!-- 새로운 오더 저장을 위한 기능 정의  -->
+	<insert id="insertPurchase"
+	parameterType="com.project.laporte.model.Orderlist"
+	useGeneratedKeys="true" keyProperty="orderno">
+
+		INSERT INTO orderlist(addr1, addr2, postcode, name, email, phoneno, loctype, servicetype,
+        request, sizelimit, deldate, paytype, totalprice, usrcouponno, point, userno, deltypeno, orderstatus, paystatus,
+        regdate, editdate) VALUES(#{addr1}, #{addr2}, #{postcode}, #{name}, #{email}, #{phoneno}, #{loctype}, #{servicetype},
+        #{request}, #{sizelimit}, #{deldate}, #{paytype}, #{totalprice}, 
+        
+        <choose>
+        <when test="usrcouponno == 0">
+        0, 
+        </when>
+       
+        <otherwise> 
+       #{usrcouponno}, 
+        </otherwise>
+        </choose>
+        
+        #{point}, #{userno}, #{deltypeno}, 'N', 
+        
+        <choose>
+        <when test='paytype == "D"'>
+        'N',
+        </when>
+
+        <otherwise>
+        'Y',
+        </otherwise>
+        
+        </choose>
+        
+        now(), now())
+	</insert>
+
+	<!-- 단일 오더 조회를 위한 기능 정의 -->
+    <select id="selectPurchase"
+        parameterType="com.project.laporte.model.Orderlist"
+        resultMap="orderlistMap">
+        SELECT orderno, addr1, addr2, postcode, name, email, phoneno, loctype, servicetype,
+        request, sizelimit, deldate, paytype, totalprice, usrcouponno, point, userno, deltypeno, orderstatus, paystatus,
+        regdate, editdate
+        FROM orderlist
+        WHERE orderno = #{orderno}
+
+    </select>
+
+	<!-- 단일행조회를 위한 기능 정의 -->
+    <select id="selectOrderDeliveryItem"
+        parameterType="com.project.laporte.model.Delivery"
+        resultMap="orderlistMap">
+        SELECT o.orderno, o.addr1, o.addr2, o.name AS `oname`, o.email, o.phoneno, o.servicetype, o.editdate, o.ccdate,
+        	o.request, o.deldate, o.paytype, o.totalprice, o.orderstatus, o.paystatus, o.regdate, o.ccstatus,
+        	p.prodno, p.name AS `pname`, op.ea, p.price, p.size, p.color, c.distype, c.discount
+        FROM orderlist o
+        INNER JOIN user u ON u.userno = o.userno
+        INNER JOIN order_prod op ON op.orderno = o.orderno
+        INNER JOIN product p ON p.prodno = op.prodno
+        INNER JOIN userscoupon us ON us.usrcouponno = o.usrcouponno
+        INNER JOIN coupon c ON c.couponno = us.couponno
+        WHERE o.orderno = #{orderno}
+    </select>
+
+	<!-- 사용자 - 주문조회를 위한 기능 정의 -->
+    <select id="selectOrderItem"
+        parameterType="com.project.laporte.model.Orderlist"
+        resultMap="orderlistMap">
+        SELECT o.orderno, o.addr1, o.addr2, o.name, o.email, o.phoneno, o.servicetype, o.editdate, o.point, o.deltypeno, o.delistatus,
+        	o.request, o.deldate, o.paytype, o.totalprice, o.orderstatus, o.paystatus, o.regdate, o.ccstatus, o.ccdate,
+        	 u.userno, p.prodno, p.name AS `pname`, op.ea, p.price, p.size, p.color, c.distype, c.discount, f.thumbnailUrl
+        FROM orderlist o
+        INNER JOIN user u ON u.userno = o.userno
+        INNER JOIN order_prod op ON op.orderno = o.orderno
+        INNER JOIN product p ON p.prodno = op.prodno
+        INNER JOIN firstimg f ON p.prodno = f.prodno
+        INNER JOIN userscoupon us ON us.usrcouponno = o.usrcouponno
+        INNER JOIN coupon c ON c.couponno = us.couponno
+        WHERE o.userno=#{userno}
+    </select>
+    
+    <!-- 관리자 - 다중행 조회를 위한 기능 정의 -->
+    <select id="selectOrderList"
+        parameterType="com.project.laporte.model.Orderlist"
+        resultMap="orderlistMap">
+        SELECT o.orderno, o.addr1, o.addr2, o.name, o.email, o.phoneno, o.servicetype, o.editdate, o.delistatus,
+        	o.request, o.deldate, o.paytype, o.totalprice, o.orderstatus, o.paystatus, o.regdate, o.ccstatus, o.ccdate,
+        	 u.userno, p.prodno, p.name AS `pname`, op.ea, p.price, p.size, p.color, c.distype, c.discount, c.couponno, c.name AS `c_name`
+        FROM orderlist o
+        INNER JOIN user u ON u.userno = o.userno
+        INNER JOIN order_prod op ON op.orderno = o.orderno
+        INNER JOIN product p ON p.prodno = op.prodno
+        INNER JOIN userscoupon us ON us.usrcouponno = o.usrcouponno
+        INNER JOIN coupon c ON c.couponno = us.couponno
+        
+        <where>
+            <if test="name != null and name != ''">
+                o.name LIKE concat('%', #{name}, '%')
+            </if>
+            <if test="orderno != null and orderno != ''">
+                o.orderno LIKE concat('%', #{orderno}, '%')
+            </if>
+        </where>
+        
+        ORDER BY o.orderno
+        
+<!--         <if test="listCount > 0">
+        	LIMIT #{offset}, #{listCount}
+        </if>
+ -->        
+    </select>
+
+	<!-- 회원별 주문 정보 조회를 위한 기능 정의 -->
+	<!-- 0228추가 -조진경  -->
+    <select id="selectOrderlistbyUserno"
+        parameterType="com.project.laporte.model.Orderlist"
+        resultMap="orderlistMap">
+        SELECT o.orderno, o.userno, o.addr1, o.addr2, o.name, o.email, o.phoneno, o.servicetype, DATE_FORMAT(o.editdate, '%Y-%m-%d') AS editdate,
+        	o.request, DATE_FORMAT(o.deldate, '%Y-%m-%d') AS deldate, o.paytype, o.totalprice, o.orderstatus, o.paystatus, DATE_FORMAT(o.regdate, '%Y-%m-%d') AS regdate,
+        	d.deliveryno, d.deliverydate, d.deliverystatus, d.trackingnum
+        FROM orderlist o
+        INNER JOIN delivery d ON d.orderno = o.orderno
+        WHERE d.userno = #{userno}
+    </select>
+    
+    <!-- 회원별 주문 건 수 조회를 위한 기능 정의 -->
+    <!-- 0308추가 - 조진경 -->
+        <select id="selectCountByUserno"
+        parameterType="com.project.laporte.model.Orderlist"
+        resultType="int">
+        SELECT COUNT(orderno)
+        FROM orderlist
+        WHERE userno = #{userno}
+    </select>
+    
+	<!-- 데이터 수 조회를 위한 기능 정의 -->
+    <select id="selectCountAll"
+        parameterType="com.project.laporte.model.Orderlist" resultType="int">
+        SELECT COUNT(*)
+        FROM orderlist o
+        INNER JOIN user u ON u.userno = o.userno
+        INNER JOIN order_prod op ON op.orderno = o.orderno
+        INNER JOIN product p ON p.prodno = op.prodno
+        INNER JOIN firstimg f ON p.prodno = f.prodno
+        INNER JOIN userscoupon us ON us.usrcouponno = o.usrcouponno
+        INNER JOIN coupon c ON c.couponno = us.couponno
+        
+        <where>
+            <if test="name != null and name != ''">
+                o.name LIKE concat('%', #{name}, '%')
+            </if>
+            <if test="orderno != null and orderno != ''">
+                o.orderno LIKE concat('%', #{orderno}, '%')
+            </if>
+        </where>
+        
+        ORDER BY o.orderno
+    </select>
+
+    <!-- 주문상태 수정을 위한 기능 정의 -->
+    <update id="updateOrderItem"
+        parameterType="com.project.laporte.model.Orderlist">
+        UPDATE orderlist SET
+            paystatus=#{paystatus}, orderstatus=#{orderstatus}, editdate=now(), ccdate=now(), ccstatus=#{ccstatus}
+        WHERE orderno=#{orderno}
+    </update>
+    
+    <!-- 배송정보 저장을 위한 기능 정의 -->
+    <update id="updateOrderStatus"
+        parameterType="com.project.laporte.model.Orderlist">
+        UPDATE orderlist SET
+            delistatus=#{delistatus}
+        WHERE orderno=#{orderno}
+    </update>
+    
+    <!-- 취소상태 수정을 위한 기능 정의 -->
+    <update id="updateOrderCCItem"
+        parameterType="com.project.laporte.model.Orderlist">
+        UPDATE orderlist SET
+            ccstatus=#{ccstatus}, ccdate=now()
+        WHERE orderno=#{orderno}
+    </update>
+    
+     <!-- 회원 삭제 시 회원 번호 null로 업데이트 -->
+    <update id = "unsetUsernoOrd"
+    	parameterType = "com.project.laporte.model.User">
+    	UPDATE orderlist SET userno = null WHERE userno = #{userno} 
+    </update>
+    
+    <!-- 단일행조회를 위한 기능 정의 -->
+    <select id="getOrderDeliveryItem"
+        parameterType="com.project.laporte.model.Orderlist"
+        resultMap="orderlistMap">
+        SELECT o.orderno, o.addr1, o.addr2, o.name AS `oname`, o.email, o.phoneno, o.servicetype, o.editdate, o.ccdate,
+        	o.request, o.deldate, o.paytype, o.totalprice, o.orderstatus, o.paystatus, o.regdate, o.ccstatus,
+        	p.prodno, p.name AS `pname`, op.ea, p.price, p.size, p.color, c.distype, c.discount
+        FROM orderlist o
+        INNER JOIN user u ON u.userno = o.userno
+        INNER JOIN order_prod op ON op.orderno = o.orderno
+        INNER JOIN product p ON p.prodno = op.prodno
+        INNER JOIN userscoupon us ON us.usrcouponno = o.usrcouponno
+        INNER JOIN coupon c ON c.couponno = us.couponno
+        WHERE o.orderno = #{orderno}
+    </select>
+    
+    <!-- 회원별 주문 건 수 조회를 위한 기능 정의 -->
+    <select id="selectCount"
+        parameterType="com.project.laporte.model.Orderlist"
+        resultType="int">
+        SELECT COUNT(*)
+        FROM orderlist
+        WHERE date_format(regdate,'%M') = date_format(now(),'%M') AND orderstatus=#{orderstatus}
+    </select>
+    
+    <!-- 회원별 주문 건 수 조회를 위한 기능 정의 -->
+    <select id="selectCountDeli"
+        parameterType="com.project.laporte.model.Orderlist"
+        resultType="int">
+        SELECT COUNT(*)
+        FROM orderlist
+        WHERE date_format(regdate,'%M') = date_format(now(),'%M') AND delistatus='N'
+    </select>
+
+</mapper>

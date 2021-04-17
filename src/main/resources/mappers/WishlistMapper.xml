@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="WishlistMapper">
+
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="wishlistmap"
+		type="com.project.laporte.model.Wishlist">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="wishno"      column="wishno" />
+		<result property="userno"      column="userno" />
+		<result property="title"       column="title" />
+		<result property="regdate"     column="regdate" />
+		<result property="editdate"    column="editdate" />
+	</resultMap>
+
+	<resultMap id="wishprodmap"
+		type="com.project.laporte.model.Wish_prod">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="wishno"        column="wishno" />
+		<result property="newwishno"     column="wishno" />
+		<result property="prodno"        column="prodno" />
+		<result property="ea"            column="ea" />
+		<result property="title"         column="title" />
+		<result property="userno"        column="userno" />
+		<result property="name"          column="name" />
+		<result property="size"          column="size" />
+		<result property="color"         column="color" />
+		<result property="price"         column="price" />
+		<result property="saleprice"     column="saleprice" />
+		<result property="thumbnailurl"  column="thumbnailurl" />
+	</resultMap>
+
+	<!-- 위시리스트에 담겨있는 상품 목록 조회 -->
+	<select id="selectWishList"
+		parameterType="com.project.laporte.model.Wish_prod"
+		resultMap="wishprodmap">
+		SELECT w.userno, w.wishno, w.title, wp.prodno, wp.ea,
+		p.name, p.size, p.saleprice, p.price, p.color, f.thumbnailurl, w.basic
+		FROM wish_prod wp
+		INNER JOIN wishlist w ON w.wishno=wp.wishno
+		INNER JOIN product p ON p.prodno =wp.prodno
+		INNER JOIN firstimg f ON f.prodno=wp.prodno
+		WHERE w.wishno=#{wishno}
+	</select>
+	
+	<!-- 위시리스트에 담겨있는 상품 개수 수정 -->
+     <update id="updateWishItem"
+        parameterType="com.project.laporte.model.Wish_prod">
+        UPDATE wish_prod SET ea=#{ea} WHERE wishno=#{wishno} AND prodno=#{prodno}
+    </update>
+    
+    <!-- 위시리스트에 담겨있는 상품 개수 수정 -->
+     <update id="updateWishItemOne"
+        parameterType="com.project.laporte.model.Wish_prod">
+        UPDATE wish_prod SET ea=ea+1 WHERE wishno=#{wishno} AND prodno=#{prodno}
+    </update>
+    
+    <!-- 위시리스트에 담겨있는 상품 다른 위시리스트로 이동 -->
+     <update id="updateWishItemMove"
+        parameterType="com.project.laporte.model.Wish_prod">
+        UPDATE wish_prod SET wishno=#{newwishno} WHERE wishno=#{wishno} AND prodno=#{prodno}
+    </update>
+    
+    <!-- 위시리스트에 담겨있는 상품 조회 -->
+     <select id="selectWishItem"
+        parameterType="com.project.laporte.model.Wish_prod"
+        resultMap="wishprodmap">
+        SELECT * FROM wish_prod WHERE wishno=#{wishno} AND prodno=#{prodno}
+    </select>
+    
+    <!-- 위시리스트에 담겨있는 상품 모두 삭제 -->
+     <delete id="deleteWishAllItem"
+        parameterType="com.project.laporte.model.Wish_prod">
+        DELETE FROM wish_prod WHERE wishno=#{wishno}
+    </delete>
+    
+    <!-- 위시리스트에 담겨있는 상품 삭제 -->
+     <delete id="deleteWishItem"
+        parameterType="com.project.laporte.model.Wish_prod">
+        DELETE FROM wish_prod WHERE wishno=#{wishno} AND prodno=#{prodno}
+    </delete>
+    
+    <!-- 위시리스트에 상품 추가 -->
+	<insert id="inserWishItem"
+        parameterType="com.project.laporte.model.Wish_prod">
+        INSERT INTO wish_prod(
+        wishno, prodno, ea
+        )VALUES(
+        #{wishno}, #{prodno}, 1)
+    </insert>
+	
+	<!-- 기본 위시리스트 생성 기능 -->
+	<insert id="inserbasicwish"
+        parameterType="com.project.laporte.model.Wishlist"
+        useGeneratedKeys="true"
+        keyProperty="wishno">
+        INSERT INTO wishlist(
+        userno, title, regdate, editdate, basic
+        )VALUES(
+        #{userno}, '위시리스트', now(), now(), 'Y')
+    </insert>
+    
+    <!-- 기본 위시리스트 조회 기능 -->
+	<select id="selectbasicwish"
+        parameterType="com.project.laporte.model.Wishlist"
+        resultMap="wishlistmap">
+        SELECT * FROM wishlist WHERE userno=#{userno} AND basic='Y'
+    </select>
+    
+    <!-- 위시리스트 목록 조회 기능 -->
+	<select id="selectallwishlist"
+        parameterType="com.project.laporte.model.Wishlist"
+        resultMap="wishlistmap">
+        SELECT * FROM wishlist WHERE userno=#{userno} AND basic='N'
+    </select>
+    
+    <!-- 위시리스트 목록 단일행 조회 기능 -->
+	<select id="selectonewishlist"
+        parameterType="com.project.laporte.model.Wishlist"
+        resultMap="wishlistmap">
+        SELECT * FROM wishlist WHERE wishno=#{wishno}
+    </select>
+    
+    <!-- 위시리스트 생성 기능 -->
+	<insert id="insertwish"
+        parameterType="com.project.laporte.model.Wishlist"
+        useGeneratedKeys="true"
+        keyProperty="wishno">
+        INSERT INTO wishlist(
+        userno, title, regdate, editdate, basic
+        )VALUES(
+        #{userno}, #{title}, now(), now(), 'N')
+    </insert>
+    
+    <!-- 위시리스트 수정 기능 -->
+	<update id="updatewish"
+        parameterType="com.project.laporte.model.Wishlist">
+        UPDATE wishlist SET title=#{title}, editdate=now() WHERE wishno=#{wishno}
+    </update>
+    
+    <!-- 위시리스트 삭제 기능 -->
+	<delete id="deletewish"
+        parameterType="com.project.laporte.model.Wishlist">
+        DELETE fROM wishlist WHERE wishno=#{wishno}
+    </delete>
+
+	<!-- 회원별 위시리스트 갯수 조회를 위한 기능 정의  -->
+	  <!-- 0308추가 - 조진경 -->
+        <select id="selectCountByUserno"
+        parameterType="com.project.laporte.model.Wishlist"
+        resultType="int">
+        SELECT COUNT(wishno)
+        FROM wishlist
+        WHERE userno = #{userno}
+    </select>
+    
+    <!-- 회원 삭제 시 회원 번호 null로 업데이트 -->
+    <update id = "unsetUsernoWish"
+    	parameterType = "com.project.laporte.model.User">
+    	UPDATE wishlist SET userno = null WHERE userno = #{userno} 
+    </update>
+</mapper>

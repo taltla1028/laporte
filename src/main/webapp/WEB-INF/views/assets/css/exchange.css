@@ -1,0 +1,88 @@
+@charset "utf-8";
+@charset "UTF-8";
+/*------------페이지 위치--------------- */
+.page-header {
+  margin: 10px 0;
+  padding: 0;
+}
+.breadcrumb {
+  background: none;
+  margin-bottom: 10px;
+}
+.breadcrumb > li,
+.breadcrumb > .active,
+.breadcrumb a {
+  color: #333;
+  font-size: 14px;
+}
+
+.breadcrumb > li + li:before {
+  content: "";
+  background-image: url(../img/laporte_clipping.png);
+  display: inline-block;
+  width: 25px;
+  height: 10px;
+  background-size: 277px 137px;
+  background-position: -147.2px -43.6px;
+}
+.exchange_title {
+  padding: 20px 0;
+}
+.exchange_explain_box p,
+.exchange_check_box p {
+  line-height: 25px;
+  font-size: 14px;
+}
+.csmain_link {
+  line-height: 25px;
+  font-size: 14px;
+  text-decoration: underline;
+}
+
+.exchange_header_box {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+
+.exchange_icon {
+  background-image: url(../img/cs_img_clipping.png);
+  display: block;
+  width: 200px;
+  height: 180px;
+  background-size: 1700px 900px;
+  background-position: -71px -699px;
+  margin: auto;
+}
+.exchange_icon2 {
+  background-image: url(../img/cs_img_clipping.png);
+  display: block;
+  width: 200px;
+  height: 180px;
+  background-size: 1500px 750px;
+  background-position: -218px -1145px;
+  margin: auto;
+}
+.exchange_icon3 {
+  background-image: url(../img/cs_img_clipping.png);
+  display: block;
+  width: 120px;
+  height: 120px;
+  background-size: 2000px 1000px;
+  background-position: -353px -353px;
+  margin: auto;
+}
+.ex_img_box {
+  padding: 20px 0 40px 0;
+}
+/* 화살표 */
+.ex_arrow_icon {
+  width: 30px;
+  height: 30px;
+  background-image: url(../img/laporte_clipping.png);
+  background-size: 500px 300px;
+  background-position: -125.2px -133.6px;
+  display: block;
+}
+.exchange_check_box {
+  padding: 20px 0;
+}

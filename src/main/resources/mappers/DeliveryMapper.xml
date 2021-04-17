@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="DeliveryMapper">
+
+    <!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+    <resultMap id="deliveryMap"
+        type="com.project.laporte.model.Delivery">
+        <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+        <result property="deliveryno" column="deliveryno" />
+        <result property="deliverydate" column="deliverydate" />
+        <result property="deliverystatus" column="deliverystatus" />
+        <result property="trackingnum" column="trackingnum" />
+        <result property="userno" column="userno" />
+        <result property="orderno" column="orderno" />
+        <result property="regdate" column="regdate" />
+        <result property="editdate" column="editdate" />
+        
+        <result property="uname" column="uname" />
+        
+        <result property="prodno" column="prodno" />
+        <result property="pname" column="pname" />
+        <result property="ea" column="ea" />
+        <result property="price" column="price" />
+        <result property="size" column="size" />
+        <result property="color" column="color" />
+        
+        <result property="addr1" column="addr1" />
+        <result property="addr2" column="addr2" />
+        <result property="oname" column="oname" />
+        <result property="email" column="email" />
+        <result property="phoneno" column="phoneno" />
+        <result property="servicetype" column="servicetype" />
+        <result property="request" column="request" />
+        <result property="deldate" column="deldate" />
+        <result property="paytype" column="paytype" />
+        <result property="totalprice" column="totalprice" />
+        <result property="orderstatus" column="orderstatus" />
+        <result property="paystatus" column="paystatus" />
+        <result property="point" column="point" />
+        <result property="ccdate" column="ccdate" />
+        <result property="ccstatus" column="ccstatus" />
+        
+        <result property="deltypeno" column="deltypeno" />
+        <result property="dname" column="dname" />
+        <result property="dprice" column="dprice" />
+        
+        <result property="usrcouponno" column="usrcouponno" />
+        <result property="couponno" column="couponno" />
+        <result property="cname" column="cname" />
+        <result property="discount" column="discount" />
+        <result property="distype" column="distype" />
+        
+        <result property="thumbnailUrl" column="thumbnailurl" />
+    </resultMap>
+	
+	<!-- 단일행 조회를 위한 기능 정의 -->
+    <select id="selectDeliveryItem"
+        parameterType="com.project.laporte.model.Delivery"
+        resultMap="deliveryMap">
+        SELECT d.deliveryno, d.deliverydate, d.deliverystatus, d.trackingnum, d.userno, d.orderno,
+        	o.addr1, o.addr2, o.name AS 'oname', o.email, o.phoneno, o.servicetype,
+        	o.request, o.deldate, o.paytype, o.totalprice, o.orderstatus, o.paystatus
+        FROM delivery d
+        INNER JOIN user u ON u.userno = d.userno
+        INNER JOIN orderlist o ON o.orderno = d.orderno
+        WHERE d.deliveryno = #{deliveryno}
+    </select>
+    
+    <!-- 단일행 조회를 위한 기능 정의 -->
+    <select id="selectDeliveryItemCount"
+        parameterType="com.project.laporte.model.Delivery"
+        resultMap="deliveryMap">
+        SELECT * FROM delivery
+        WHERE orderno = #{orderno}
+    </select>
+	
+	<!-- 다중행 조회를 위한 기능 정의 -->
+    <select id="selectDeliveryList"
+        parameterType="com.project.laporte.model.Delivery"
+        resultMap="deliveryMap">
+        SELECT o.orderno, d.userno, o.addr1, o.addr2, o.name AS `oname`, o.email, o.phoneno, o.servicetype, o.editdate, o.delistatus,
+        	o.request, o.deldate, o.paytype, o.totalprice, o.orderstatus, o.paystatus, o.regdate, o.ccstatus, o.ccdate,
+        	p.prodno, p.name AS `pname`, op.ea, p.price, p.size, p.color,
+        	c.distype, c.discount, c.couponno, c.name AS `c_name`,
+        	d.deliveryno, d.deliverydate, d.deliverystatus, d.trackingnum
+        FROM delivery d
+        INNER JOIN user u ON u.userno = d.userno
+        INNER JOIN orderlist o ON o.orderno = d.orderno
+        INNER JOIN order_prod op ON op.orderno = o.orderno
+        INNER JOIN product p ON p.prodno = op.prodno
+        INNER JOIN userscoupon us ON us.usrcouponno = o.usrcouponno
+        INNER JOIN coupon c ON c.couponno = us.couponno
+        ORDER BY o.orderno
+    </select>
+    
+    <!-- 사용자에 맞는 다중행 조회를 위한 기능 정의 -->
+    <select id="selectDeliveryListUser"
+        parameterType="com.project.laporte.model.Delivery"
+        resultMap="deliveryMap">
+        SELECT o.orderno, d.userno, o.addr1, o.addr2, o.name AS `oname`, o.email, o.phoneno, o.servicetype, o.editdate, o.delistatus,
+        	o.request, o.deldate, o.paytype, o.totalprice, o.orderstatus, o.paystatus, o.regdate, o.ccstatus, o.ccdate,
+        	p.prodno, p.name AS `pname`, op.ea, p.price, p.size, p.color,
+        	c.distype, c.discount, c.couponno, c.name AS `c_name`, f.thumbnailurl,
+        	d.deliveryno, d.deliverydate, d.deliverystatus, d.trackingnum
+        FROM delivery d
+        INNER JOIN user u ON u.userno = d.userno
+        INNER JOIN orderlist o ON o.orderno = d.orderno
+        INNER JOIN order_prod op ON op.orderno = o.orderno
+        INNER JOIN product p ON p.prodno = op.prodno
+        INNER JOIN firstimg f ON p.prodno = f.prodno
+        INNER JOIN userscoupon us ON us.usrcouponno = o.usrcouponno
+        INNER JOIN coupon c ON c.couponno = us.couponno
+        WHERE d.userno=#{userno}
+        ORDER BY o.orderno
+    </select>
+    
+    <!-- 배송정보 저장을 위한 기능 정의 -->
+	<insert id="insertDeliveryItem"
+		parameterType = "com.project.laporte.model.Delivery"
+		useGeneratedKeys="true" keyProperty="deliveryno">
+		INSERT INTO delivery(deliveryno, deliverydate, deliverystatus, trackingnum, userno, orderno, regdate, editdate)
+		VALUES(#{deliveryno}, now(), #{deliverystatus}, #{trackingnum}, #{userno}, #{orderno}, now(), now())
+	</insert>
+
+    <!-- 배송정보 수정을 위한 기능 정의 -->
+    <update id="updateDeliveryItem"
+        parameterType="com.project.laporte.model.Delivery">
+        UPDATE delivery SET
+            deliveryno=#{deliveryno}, deliverystatus=#{deliverystatus}, editdate=now()
+        WHERE deliveryno=#{deliveryno}
+    </update>
+    
+    <!-- 배송정보 삭제를 위한 기능 정의 -->
+    <delete id="deleteDeliveryItem"
+        parameterType="com.project.laporte.model.Delivery">
+        DELETE FROM delivery WHERE deliveryno=#{deliveryno}
+    </delete>
+    
+    <!-- 데이터 수 조회를 위한 기능 정의 -->
+    <select id="selectCountAll"
+        parameterType="com.project.laporte.model.Delivery" resultType="int">
+        SELECT COUNT(*)
+        FROM delivery d
+        INNER JOIN user u ON u.userno = d.userno
+        INNER JOIN orderlist o ON o.orderno = d.orderno
+    </select>
+    
+     <!-- 회원 삭제 시 회원 번호 null로 업데이트 -->
+    <update id = "unsetUsernoDel"
+    	parameterType = "com.project.laporte.model.User">
+    	UPDATE delivery SET userno = null WHERE userno = #{userno} 
+    </update>
+    
+    <!-- 회원별 배송 조회를 위한 기능 정의 -->
+    <select id="selectCountDelivery"
+        parameterType="com.project.laporte.model.Delivery"
+        resultType="int">
+        SELECT COUNT(*)
+        FROM delivery
+        WHERE date_format(regdate,'%M') = date_format(now(),'%M') AND deliverystatus=#{deliverystatus}
+    </select>
+</mapper>

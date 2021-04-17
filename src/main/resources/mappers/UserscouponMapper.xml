@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="UserscouponMapper">
+
+    <!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+    <resultMap id="userscouponMap"
+        type="com.project.laporte.model.Userscoupon">
+        <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+        <result property="usrcouponno" column="usrcouponno" />
+        <result property="userno" column="userno" />
+        <result property="couponno" column="couponno" />
+        <result property="usestatus" column="usestatus" />
+        <result property="regdate" column="regdate" />
+        <result property="editdate" column="editdate" />
+        
+        <!-- user 테이블과 조인 -->
+        <result property="u_userno" column="u_userno AS userno" />
+        
+        <!-- coupon 테이블과 조인  -->
+        <result property="name" column="name" />
+        <result property="startdate" column="startdate" />
+        <result property="enddate" column="enddate" />
+        <result property="enddate" column="enddate" />
+        <result property="discount" column="discount" />
+        <result property="distype" column="distype" />
+        <result property="dupliuse" column="dupliuse" />
+        <result property="link" column="link" />
+        <result property="expire" column="expire" />
+   
+    </resultMap>
+    
+	<!-- 단일 회원 쿠폰 조회를 위한 기능 정의 -->
+    <select id="selectUsersCoupon"
+        parameterType="com.project.laporte.model.Userscoupon"
+        resultMap="userscouponMap">
+        SELECT * FROM userscoupon WHERE usrcouponno = #{usrcouponno}
+     </select>
+	
+	<!-- 회원 쿠폰 목록 조회를 위한 기능 정의 -->
+    <select id="selectUsersCouponList"
+        parameterType="com.project.laporte.model.Userscoupon"
+        resultMap="userscouponMap">
+        SELECT usrcouponno, u.userno, u.couponno, usestatus, name, DATE_FORMAT(startdate, '%Y-%m-%d') AS startdate, DATE_FORMAT(enddate, '%Y-%m-%d') AS enddate, discount, distype, dupliuse, link, expire
+        FROM userscoupon u
+        INNER JOIN coupon c ON u.couponno = c.couponno
+        WHERE u.userno = #{userno} AND usestatus = 'N' AND expire = 'N'
+        ORDER BY usrcouponno
+    </select>
+	
+	
+    <!-- 회원 쿠폰 추가 위한 기능 정의 -->
+	<insert id="insertUsersCoupon"
+		parameterType = "com.project.laporte.model.Userscoupon"
+		useGeneratedKeys="true" keyProperty="usrcouponno">
+		INSERT INTO userscoupon(userno, couponno, usestatus, regdate, editdate)
+		VALUES(#{userno}, #{couponno}, 'N', now(), now())
+	</insert>
+	
+	<!-- 사용한 쿠폰을 업데이트 하는 기능 정의 -->
+	<update id = "updateUsersCoupon"
+	parameterType = "com.project.laporte.model.Userscoupon">
+		UPDATE userscoupon SET
+		usestatus = #{usestatus},
+		editdate = now()
+		WHERE usrcouponno = #{usrcouponno}
+	</update>
+	
+	<!-- 중복 쿠폰 보유 여부를 확인 하는 기능 정의 -->
+	<select id = "checkUsersCoupon"
+	parameterType = "com.project.laporte.model.Userscoupon"
+	resultMap="userscouponMap">
+		SELECT usrcouponno
+		FROM userscoupon
+		WHERE couponno = #{couponno} AND userno = #{userno}
+	</select>
+	
+	 <!-- 회원 삭제 시 회원 번호 null로 업데이트 -->
+    <update id = "unsetUsernoUsc"
+    	parameterType = "com.project.laporte.model.User">
+    	UPDATE userscoupon SET userno = null WHERE userno = #{userno} 
+    </update>
+    
+</mapper>

@@ -1,0 +1,359 @@
+@charset "UTF-8";
+
+/* 컨텐츠 박스 간격 */
+.home_content {
+	margin: 40px 0 20px 0;
+}
+/* 배너 */
+.home_banner_content {
+	display: block;
+	height: auto;
+	background-color: #859f6c;
+	color: #ffffff;
+	margin-top: 15px;
+	margin-bottom: 40px;
+}
+
+.banner_link_btn {
+	display: block;
+	margin: 20px;
+	width: 230px;
+	height: 50px;
+	text-align: center;
+	font-size: 15px;
+	padding-top: 15px;
+	background-color: #333333;
+	color: #fff;
+	border-radius: 30px;
+}
+
+.home_banner_img img {
+	width: 100%;
+}
+
+.home_banner_txt {
+	display: inline-block;
+}
+
+.home_banner_txt h3 {
+	display: block;
+	width: 80%;
+	color: #ffffff;
+	margin: 50px 0 50px 40px;
+}
+
+.home_banner_txt p {
+	display: block;
+	width: 75%;
+	margin: 20px 0 0 40px;
+	color: #ffffff;
+	font-size: 16px;
+	padding-bottom: 30px;
+}
+
+.home_banner_txt a {
+	display: block;
+	width: 30%;
+	height: 37px;
+	border-radius: 18px;
+	background-color: #ffffff;
+	text-align: center;
+	font-size: 14px;
+	padding-top: 8px;
+	margin-left: 20px;
+	margin-bottom: 40px;
+}
+
+.slider__controller__dot {
+	position: absolute;
+	z-index: 3;
+	left: 50%;
+	bottom:70px;
+	width: 35.46667vw;
+	margin-left: -17.73333vw;
+}
+
+.swiper-pagination-progressbar {
+	width: 100%;
+	height: 0.26667vw;
+	background: rgba(255, 255, 255, 0.25);
+}
+
+.swiper-pagination-progressbar {
+	position: absolute;
+}
+
+.slider__controller {
+	height: 0;
+	width: 100%;
+}
+
+.swiper-pagination {
+	position: absolute;
+	text-align: center;
+	transition: 0.3s opacity;
+	transform: translate3d(0, 0, 0);
+	z-index: 10;
+}
+
+.fb__progressBar .swiper-pagination-progressbar-fill {
+	background: #000;
+}
+
+.swiper-pagination-progressbar .swiper-pagination-progressbar-fill {
+	position: absolute;
+	left: 0;
+	top: 0;
+	width: 100%;
+	height: 100%;
+	transform-origin: left top;
+}
+
+#banner_close_button {
+	display: block;
+	float: right;
+	width: 20px;
+	color: #fff;
+	font-size: 25px;
+	font-weight: bold;
+}
+
+/* 모든 제품 */
+#home_item_box {
+	overflow: scroll;
+}
+
+#home_item_listbox {
+	display: inline-flex;
+	margin-bottom: 30px;
+}
+
+.home_item {
+	position: relative;
+	max-width: 120px;
+	margin: 0 10px;
+}
+
+.home_wishlist_loc {
+	position: absolute;
+	top: 0;
+	right: 0;
+}
+
+.home_wishlist_icon {
+	display: inline-block;
+	width: 30px;
+	height: 24px;
+	background-image: url(../img/laporte_clipping.png);
+	background-repeat: no-repeat;
+	background-size: 530px 300px;
+	background-position: -20px -52px;
+}
+
+.home_wishlist_icon_active {
+	display: inline-block;
+	width: 30px;
+	height: 24px;
+	background-image: url(../img/laporte_clipping.png);
+	background-repeat: no-repeat;
+	background-size: 530px 300px;
+	background-position: -294px -246px;
+}
+
+.home_item_img {
+	margin: 40px 0 30px 0;
+	width: 120px;
+	height: 120px;
+}
+
+.home_item_title, .home_item_price {
+	font-size: 14px;
+	font-weight: 700;
+}
+
+.home_item_info {
+	font-size: 12px;
+}
+
+.home_item_mark {
+	background-color: #ffdb00;
+	box-shadow: 2px 2px #e00751;
+	width: 60px;
+}
+
+.home_item_new {
+	position: absolute;
+	top: 170px;
+	left: 0;
+	color: #ca5008;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.home_item_down {
+	position: absolute;
+	top: 170px;
+	left: 0;
+	color: #ff0000;
+	font-size: 12px;
+	font-weight: 700;
+}
+
+.home_item_pricedown {
+	text-decoration: line-through;
+}
+
+.home_item:hover .home_item_title {
+	text-decoration: underline;
+}
+
+.home_cartloc {
+	position: absolute;
+	bottom: -30px;
+	right: 10px;
+	width: 35px;
+	height: 35px;
+	background-color: #172f50;
+	border-radius: 50px;
+}
+
+.cart_icon {
+	display: inline-block;
+	width: 35px;
+	height: 35px;
+	background-image: url(../img/laporte_clipping.png);
+	background-size: 600px 300px;
+	background-position: -17px -124px;
+}
+
+/* 이달의 제품 */
+.home_produc_h4 {
+	color: #333;
+}
+
+.home_product_listwrap {
+	overflow: scroll;
+	margin-top: 20px;
+	margin-bottom: 35px;
+}
+
+.home_product_listwrap_ul {
+	display: flex;
+}
+
+.home_product_listwrap_ul_li {
+	padding-right: 10px;
+}
+
+.home_product_listwrap_ul_li_img {
+	display: block;
+}
+
+.home_product_listwrap_ul_li_div {
+	width: 315px;
+	height: 232px;
+	background-color: #172f50;
+	position: relative;
+}
+
+.home_product_listwrap_ul_li_div_a {
+	color: #fff;
+	display: block;
+	padding: 32px;
+}
+
+.home_product_listwrap_ul_li_div_span {
+	position: absolute;
+	display: inline-block;
+	height: 60px;
+	width: 60px;
+	background: #fff;
+	border-radius: 50%;
+	padding: 10px;
+	bottom: 30px;
+	left: 30px;
+	background-image: url(../img/addtocart.png);
+	background-size: 75px 75px;
+	background-position: center;
+}
+
+/* 홈퍼니싱 아이디어 */
+/* 홈퍼니싱 아이디어 네비버튼 */
+.idea_btn_box {
+	overflow: auto;
+	width: 100%;
+	height: 42px;
+	margin: 20px 0 20px 0;
+}
+
+.nav-pills>li.active>a, .nav-pills>li.active>a:focus, .nav-pills>li.active>a:hover
+	{
+	background-color: #172f50;
+}
+
+.nav-pills>li>a {
+	border-radius: 20px;
+}
+
+.nav>li>a {
+	background-color: #cebea7;
+	padding: 10px 20px;
+	font-size: 14px;
+}
+
+.nav-pills>li>a:hover {
+	background-color: #cebea7;
+	color: #000;
+}
+
+.nav-pills>li+li {
+	margin-left: 8px;
+}
+
+#mytab {
+	width: 100%;
+	height: 42px;
+}
+/** 홈퍼니싱 아이디어 네비버튼 끝 */
+.home_content {
+	margin: auto;
+}
+
+/** 홈퍼니싱 아이디어 갤러리  */
+.home_content .home_idea_img {
+	float: left;
+	width: 100%;
+	padding: 0;
+}
+
+.home_content .home_idea_img a {
+	display: inline-block;
+	width: 45%;
+	margin: 5px;
+}
+
+.home_content .home_idea_img img {
+	display: block;
+	width: 100%;
+}
+/** 홈퍼니싱 아이디어 갤러리 끝  */
+.home_banner {
+	width: auto;
+	min-height: 500px;
+	padding: 100px;
+}
+
+input[type=checkbox]+label.heart {
+	display: block;
+	width: 22px;
+	height: 18px;
+	background-image: url(../img/laporte_clipping.png);
+	background-repeat: no-repeat;
+	background-size: 480px 270px;
+	background-position: -266px -194px;
+	float: right;
+}
+
+input[type=checkbox]:checked+label.heart {
+	background-position: -266px -225px;
+}

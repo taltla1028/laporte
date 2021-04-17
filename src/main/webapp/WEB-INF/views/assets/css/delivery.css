@@ -1,0 +1,58 @@
+@charset "UTF-8";
+/*------------페이지 위치--------------- */
+.page-header {
+  margin: 10px 0;
+  padding: 0;
+}
+.breadcrumb {
+  background: none;
+  margin-bottom: 10px;
+}
+.breadcrumb > li,
+.breadcrumb > .active,
+.breadcrumb a {
+  color: #333;
+  font-size: 14px;
+}
+
+.breadcrumb > li + li:before {
+  content: "";
+  background-image: url(../img/laporte_clipping.png);
+  display: inline-block;
+  width: 25px;
+  height: 10px;
+  background-size: 277px 137px;
+  background-position: -147.2px -43.6px;
+}
+.delivery_title {
+  padding: 20px 0;
+}
+.delivery_explain_box p {
+  line-height: 25px;
+  font-size: 14px;
+}
+.delivery_header_box {
+  padding-bottom: 20px;
+  border-bottom: 1px solid #eee;
+}
+.delivery_check_box {
+  margin: 50px 0;
+}
+.delivery_check_box p {
+  line-height: 25px;
+  font-size: 14px;
+}
+.delivery_btn {
+  display: block;
+  border-radius: 25px;
+  background-color: #172f50;
+  color: #fff;
+  width: fit-content;
+  padding: 10px 20px;
+}
+.delivery_btn:hover,
+.delivery_btn:active {
+  color: #fff;
+  background-color: #33598c;
+  text-decoration: none;
+}

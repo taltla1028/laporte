@@ -1,0 +1,301 @@
+@charset "UTF-8";
+	
+	.container {
+    padding-right: 15px;
+    padding-left: 15px;
+    margin-right: auto;
+    margin-left: auto;
+	}
+	.allproduct{
+	margin-top:9px;
+	
+		
+	}
+	.ul_wrap{
+		overflow:scroll;
+		
+		margin:0 10px 7px;
+		
+	}
+	
+	.allproduct_category{
+		
+		width:524px;
+		overflow:hidden;
+	}
+	
+	.category{
+		text-align:center;
+		line-height:44px;
+		width:100px;
+		height:44px;
+		background:#CEBEA7;
+		
+		border-radius:25px;
+		float:left;
+		margin-right:6px;
+	}
+	.category_a{
+	color:#fff;
+	font-size:15px;
+	}
+	.category:last-child{
+		
+		margin-right:0;
+	}
+	.active{
+	
+		background:#172F50;
+		
+	}
+	.active2{
+	
+		background:#eee;
+	 }
+	.category3{
+	border-radius: 25px;
+    float: left;
+    border: 1px solid #ddd;
+    height: 35px;
+    width: 145px;
+    text-align: center;
+    line-height: 35px;
+    margin-bottom: 10px;
+    margin-right: 6px;
+	}
+	
+	.category3:last-child{
+		
+		margin-right:0;
+	}
+	
+	.pdh3{
+	margin-top:10px;
+	margin-bottom:10px;
+	}
+	.allproduct_top{
+		margin:0 10px 0;
+		position:sticky;
+		top:0px;
+		background:#fff;
+		z-index:80;
+	}
+
+	.allproduct_slide{
+		overflow:scroll;
+	}
+	
+	.allproduct_slide_ul{
+		
+		width:906px;
+		overflow:hidden;
+		border-bottom:1px solid #ddd;
+		
+	}
+	
+	
+	
+	
+	.allproduct_product_ul{
+		overflow:hidden;
+		width:100%;
+	}
+	
+	.allproduct_product_ul_li{
+		float:left;
+		width:50%;
+		border:1px solid #ddd;
+		padding:15px 8px 50px 8px;
+		 position: relative;
+	}
+	
+	
+	
+	input[type=checkbox] + label.heart{
+		display:block;
+		width:22px;
+		height:18px;
+		background-image:url(../img/laporte_clipping.png);
+		background-repeat: no-repeat;
+		background-size:480px 270px;
+		background-position:-266px -194px;
+		float:right;
+	}
+	input[type=checkbox]:checked + label.heart{
+		background-position:-266px -225px;
+		
+	}
+	
+	.product_img{
+		margin:15px auto 18px;
+		width:100%;
+		float:clear;
+	}
+	
+	.sail{
+		font-size: 13px;
+	    color: #f64b4b;
+	    
+    	font-weight: bold;
+    	display:block;
+	}
+	
+	.product_a{
+		font-size:17px;
+		color:#333;
+	
+		font-weight:bold;
+	}
+	
+	.product_txt{
+	 display:block;
+	 font-size:13px;
+	 color:#999;
+	}
+	.product_size{
+	 display:block;
+	 font-size:13px;
+	 color:#999;
+	 margin-bottom:4px;
+	}
+	
+	.sail_money{
+	display:block;
+	font-size:13px;
+	color:#333;
+	text-decoration:line-through;
+	margin: 4px 0;
+	}
+	
+	.money{
+	display:block;
+	}
+	
+	.money_won{
+	
+	font-size:10px;
+	vertical-align:text-top;
+	}
+	
+	.money_won2{
+	font-weight:700;
+	font-size:16px;
+	}
+	
+	.home_item_mark {
+  	background-color: #ffdb00;
+    box-shadow: 2px 2px #e00751;
+    width: fit-content;
+    padding: 3px;
+	}
+	
+	.starbox{
+		display:flex;
+		margin-top:14px;
+	}
+	
+	.star{
+		display:block;
+		width:22px;
+		height:18px;
+		background-image:url(../img/laporte_clipping.png);
+		background-repeat: no-repeat;
+		background-size:480px 270px;
+		background-position:-308px -158px;
+	}
+	
+	.hrefstar{
+		display:block;
+		width:22px;
+		height:18px;
+		background-image:url(../img/laporte_clipping.png);
+		background-repeat: no-repeat;
+		background-size:480px 270px;
+		background-position:-308px -196px;
+	}
+	
+	.nullstar{
+		display:block;
+		width:33px;
+		height:27px;
+		background-image:url(../img/laporte_clipping.png);
+		background-repeat: no-repeat;
+		background-size:480px 270px;
+		background-position:-308px -123px;
+	}
+	
+	.addcart{
+		display:block;
+		width:30px;
+		height:26px;
+		background-image:url(../img/laporte_clipping.png);
+		background-repeat: no-repeat;
+		background-size:660px 360px;
+		background-position:-365px -66px;
+		position:absolute;
+		bottom:14px;
+		right:18px;
+	}
+	
+	.new{
+		font-size: 16px;
+	    color: #ca5008;
+    	font-weight: bold;
+    	display:block;
+    	margin-bottom:7px;
+	}
+	
+	.closet_txt{
+	padding:40px 20px 20px;
+	
+	}
+	
+	.closet_p{
+	word-wrap: break-word;
+	font-size:14px;
+	margin-bottom:10px;
+	}
+	
+	.closet_bold{
+	display:block;
+	margin: 40px 0px 30px;
+	}
+	
+	.closet_span_bold{
+	display:block;
+	font-weight:700;
+	margin-bottom:10px;
+	}
+	
+	.closet_span_line{
+	font-size:14px;
+	text-decoration:underline;
+	}
+	
+	.moveup{
+	justify-content:center;
+	display:flex;
+	width:100%;
+	border-top:1px solid #f5f5f5;
+	padding-top:36px;
+	}
+	.mini_font{
+	display:block;
+	font-size:12px;
+	margin:4px 0;
+	}
+	.text_box{
+	height: 120px;
+    display: block;
+	}
+	.page_box{
+	padding: 15px;
+    margin: auto;
+    width: fit-content;
+	}
+	.no_prod{
+	    margin: auto;
+    width: fit-content;
+    padding: 50px;
+	}
+	

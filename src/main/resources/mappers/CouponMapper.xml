@@ -1,0 +1,90 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="CouponMapper">
+
+    <!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+    <resultMap id="couponMap"
+        type="com.project.laporte.model.Coupon">
+        <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+        <result property="couponno" column="couponno" />
+        <result property="name" column="name" />
+        <result property="startdate" column="startdate" />
+        <result property="enddate" column="enddate" />
+        <result property="discount" column="discount" />
+        <result property="distype" column="distype" />
+        <result property="dupliuse" column="dupliuse" />
+        <result property="expire" column="expire" />
+        <result property="link" column="link" />
+        <result property="regdate" column="regdate" />
+        <result property="editdate" column="editdate" />
+    </resultMap>
+	
+	<!-- 단일 쿠폰 조회를 위한 기능 정의 -->
+    <select id="selectCoupon"
+        parameterType="com.project.laporte.model.Coupon"
+        resultMap="couponMap">
+        SELECT couponno, name, DATE_FORMAT(startdate, '%Y-%m-%d') AS startdate, DATE_FORMAT(enddate, '%Y-%m-%d') AS enddate, discount, distype, dupliuse, expire, link, regdate, editdate FROM coupon
+        WHERE couponno = #{couponno}
+    </select>
+	
+	<!-- 만료전 쿠폰 목록 조회를 위한 기능 정의 -->
+    <select id="selectCouponList"
+        parameterType="com.project.laporte.model.Coupon"
+        resultMap="couponMap">
+        SELECT couponno, name, DATE_FORMAT(startdate, '%Y-%m-%d')AS startdate, DATE_FORMAT(enddate, '%Y-%m-%d') AS enddate, discount, distype, dupliuse, expire, link, regdate, editdate 
+        FROM coupon
+        WHERE expire = 'N'
+    </select>
+    
+    <!-- 만료된 쿠폰 목록 조회를 위한 기능 정의 -->
+    <select id="selectEndCouponList"
+        parameterType="com.project.laporte.model.Coupon"
+        resultMap="couponMap">
+        SELECT couponno, name, DATE_FORMAT(startdate, '%Y-%m-%d')AS startdate, DATE_FORMAT(enddate, '%Y-%m-%d') AS enddate, discount, distype, dupliuse, expire, link, regdate, editdate 
+        FROM coupon
+        WHERE expire = 'Y'
+    </select>
+	
+    <!-- 새로운 쿠폰 생성을 위한 기능 정의 -->
+	<insert id="insertCoupon"
+		parameterType = "com.project.laporte.model.Coupon"
+		useGeneratedKeys="true" keyProperty="couponno">
+		INSERT INTO coupon(name, startdate, enddate, discount, distype, dupliuse, link, expire, regdate, editdate)
+		VALUES(#{name}, #{startdate}, #{enddate}, #{discount}, #{distype}, #{dupliuse}, #{link}, 'N', now(), now())
+	</insert>
+
+    <!-- 쿠폰 수정을 위한 기능 정의 -->
+    <update id="updateCoupon"
+        parameterType="com.project.laporte.model.Coupon">
+        UPDATE coupon SET
+        name = #{name}, 
+        startdate = #{startdate}, 
+        enddate = #{enddate}, 
+        discount = #{discount}, 
+        distype = #{distype}, 
+        dupliuse = #{dupliuse}, 
+        link = #{link}, 
+        expire = 'N', 
+        editdate = now()
+        WHERE couponno = #{couponno}
+    </update>
+    
+    <!-- 쿠폰 삭제를 위한 기능 정의 -->
+    <delete id="deleteCoupon"
+        parameterType="com.project.laporte.model.Coupon">
+        DELETE FROM coupon WHERE couponno=#{couponno}
+    </delete>
+    
+     <!-- 쿠폰 만료을 위한 기능 정의 -->
+    <update id="expireCoupon"
+        parameterType="com.project.laporte.model.Coupon">
+        UPDATE coupon SET 
+        expire = 'Y', 
+        editdate = now()
+        WHERE couponno = #{couponno}
+    </update>
+	
+</mapper>

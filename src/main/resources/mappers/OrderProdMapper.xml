@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<mapper namespace="OrderProdMapper">
+
+    <!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+    <resultMap id="orderprodMap"
+        type="com.project.laporte.model.Order_prod">
+        <!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+        <result property="orderno" column="orderno" />
+        <result property="prodno" column="prodno" />
+        <result property="ea" column="ea" />
+    </resultMap>
+
+	<!-- 새로운 구매 내역 저장을 위한 기능 정의  -->
+	<insert id="insertOrderProd"
+	parameterType="com.project.laporte.model.Order_prod">
+		INSERT INTO order_prod(orderno, prodno, ea)
+		VALUES(#{orderno}, #{prodno}, #{ea})
+	</insert>
+
+	<!-- 단일 구매 내역  조회를 위한 기능 정의 -->
+    <select id="selectOrderProd"
+        parameterType="com.project.laporte.model.Order_prod"
+        resultMap="orderprodMap">
+		SELECT orderno, prodno, ea FROM order_prod 
+		WHERE orderno = #{orderno} AND prodno = #{prodno}
+    </select>
+
+
+</mapper>

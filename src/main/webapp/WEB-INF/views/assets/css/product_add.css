@@ -1,0 +1,147 @@
+@charset "UTF-8";
+.card-body .product_info_table {
+  vertical-align: middle;
+  margin-bottom: 25px;
+}
+.card-body .info_table_color {
+  background-color: #f5f5f5;
+  vertical-align: middle;
+}
+.input-group label {
+  padding: 0 10px;
+  font-weight: normal !important;
+}
+.input-group input {
+  margin: 0 5px;
+}
+#admin_notes {
+  width: 70%;
+  margin: 5px;
+}
+#product_detail_text {
+  height: 150px;
+}
+#product_notes {
+  width: 70%;
+  height: 150px;
+  margin: 5px;
+}
+#product_detail_size {
+  width: 70%;
+  height: 70px;
+  margin: 5px;
+}
+.form-inline .input-group .product_quantity_num {
+  min-width: 50px;
+  max-width: 100px;
+  float: none;
+}
+.product_add_btn {
+  margin: auto;
+  width: fit-content;
+  padding: 10px 50px;
+}
+
+.prod_edit,
+.prod_img_add,
+.prod_delete {
+  width: fit-content;
+  margin:10px;
+}
+.prod_img_add {
+	float:left;
+}
+
+.prod_delete,
+.prod_edit {
+	float:right;
+}
+.btn-block+.btn-block {
+    margin-top: 10px;
+}
+.btn_box {
+  padding-bottom:15px;
+  width:90%;
+  margin:auto;
+}
+select#category2 {
+  min-width: 140px;
+  margin-left: 10px;
+}
+#thumb_input_img {
+  width: 200px;
+  margin: auto;
+  display: block;
+}
+.img_box {
+  height: 170px;
+  width: 45%;
+}
+.detail_img_wrap img {
+  width: 150px;
+  margin: 10px;
+  display: block;
+}
+
+/* 이미지 업로드 input type=file css */
+.filebox_thumb input[type="file"],
+.filebox_detail input[type="file"] {
+  position: absolute;
+  width: 0;
+  height: 0;
+  padding: 0;
+  overflow: hidden;
+  border: 0;
+}
+
+.filebox_thumb label,
+.filebox_detail label {
+  display: inline-block;
+  padding: 6px 12px;
+  margin-bottom: 0;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 1.42857143;
+  text-align: center;
+  white-space: nowrap;
+  vertical-align: middle;
+  -ms-touch-action: manipulation;
+  touch-action: manipulation;
+  cursor: pointer;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+  background-image: none;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  color: #fff;
+  background-color: #337ab7;
+  border-color: #2e6da4;
+  margin: 0 3px;
+}
+
+.filebox_thumb,
+.filebox_detail {
+  margin-bottom: 10px;
+}
+.explain_box {
+  margin-top: 10px;
+}
+.img_wrap {
+  display: inline-block;
+}
+.img_delete_btn {
+  margin: 0 60px;
+}
+
+.detailimg_wrap{
+	width: fit-content;
+    margin: 10px;
+    display: inline-block;
+}
+
+.detailimg_wrap .detail_delete{
+	margin: 20px 90px;
+	width: fit-content;
+}

@@ -1,0 +1,337 @@
+@charset "utf-8";
+
+    /*공통영역*/
+     *{
+
+        padding:0;
+        margin:0;
+        box-sizing: border-box;
+      }
+      a{
+        text-decoration: none;
+      }
+      a:link{
+      color:#6F6F70;
+      }
+      a:visited{
+       color:#6F6F70;
+      }
+     a:hover{
+    color:#6F6F70;
+      }
+      a:active{
+     color:#6F6F70;
+      }
+      ol, ul {
+        list-style: none;
+       }
+     span{
+        font-size: 14px;
+     }
+
+    /*공통영역 끝*/
+
+    /*예약 본문*/
+
+       .reserve_top{
+       width: 100%;
+      }
+
+      .reserve_bottom{
+       width: 100%;
+       min-height: 600px;
+       margin:0 58px;
+      }
+
+      .reserve_ul {
+       margin-top: 15px;
+        display:flex;
+        border-bottom: 2px solid #ccc;
+
+      }
+      .reserve_li{
+      display: inline-block;
+      width: 60px;
+      color:#333333;
+      font-size:15px;
+      margin-left: 20px;
+      }
+      .iconbox{
+        margin-top:5px;
+        background-image: url(../img/laporte_clipping.png);
+        background-size: 326px 197px;
+        background-position:-182px -61px;
+        height:15px;
+        width:15px;
+
+      }
+
+      .reserve_li2{
+      display: block;
+      width: 90%;
+      color:#333333;
+      font-size:15px;
+      padding-bottom:13px;
+      margin-left: 8px;
+      }
+     .reserve_text{
+      padding-top:33px;
+      border-bottom: 2px solid #ccc;
+     }
+     .reserve_text_h2{
+     padding-bottom:40px;
+     font-weight:500;
+     margin-left:20px;
+     }
+     .reserve_text_h4{
+     padding-bottom:20px;
+     font-weight:300;
+     color: #333333;
+     font-size: 16px;
+     margin-left: 20px;
+     }
+
+     .reserve_select{
+     padding-top:25px;
+     padding-bottom:25px;
+     margin-left: 20px;
+     }
+
+     .reserve_select select{
+     width: 23%;
+     height: 40px;
+     border: 1px solid rgb(165,165,165);
+     opacity: 0.7;
+     border-radius: 4px;
+     margin-top: 10px;
+     }
+
+     .reserve_cal-text{
+     width: 100%;
+     height:99px;
+     background-color:#AAA;
+     margin-bottom: 20px;
+     padding-left: 20px;
+
+     }
+
+     .reserve_cal-text p{
+    color:#fff;
+    font-size: 14px;
+    line-height: 20px;
+    padding-top: 30px;
+    }
+
+
+
+
+     .form-control{
+     width:72%;
+     height: 40px;
+     border: 1px solid #ccc;
+     color:#666;
+     text-align: center;
+     display: block;
+     border: 1px solid rgb(165,165,165);
+     opacity: 0.7;
+     border-radius: 4px;
+     text-indent: 0;
+     }
+
+
+    #datepicker-always-visible{
+        margin-top:90px;
+        margin-bottom: 20px;
+    }
+
+    .input_default{
+        display: block;
+        height: 30px;
+        border: 1px solid rgb(165,165,165);
+        opacity: 0.7;
+        border-radius: 4px;
+        text-indent: 10px;
+        width:70%;
+        margin-bottom: 10px;
+    }
+    input:focus{
+        outline: none;
+        opacity: 1;
+    }
+
+    select:focus{
+        outline:none;
+    }
+
+    #reserve_input{
+        min-height: 500px;
+        margin:50px;
+    }
+
+    #reserve_input span{
+        display: block;
+        margin-bottom: 10px;
+        font-size: 14px;
+    }
+    #reserve_input .reserve_input_name input{
+        display: block;
+        width: 72%;
+        height: 40px;
+        margin-bottom: 10px;
+    }
+
+    #reserve_input .reserve_input_email{
+        margin-top:20px;
+    }
+
+    #reserve_input .reserve_input_email #at_mark{
+        display: inline-block;
+    }
+
+    #reserve_input .reserve_input_email input{
+        display: inline-block;
+        width: 23%;
+        height: 40px;
+    }
+    #reserve_input .reserve_input_email select{
+        display: inline-block;
+        width: 24%;
+        height: 40px;
+        overflow: hidden;
+        text-indent: 0;
+    }
+    #reserve_input .reserve_input_call{
+        margin-top: 20px;}
+
+    #reserve_input .reserve_input_call select{
+        display: inline-block;
+        width: 23%;
+        height: 40px;
+    }
+
+    #reserve_input .reserve_input_call input{
+        display: inline-block;
+        width: 23%;
+        height: 40px;
+    }
+
+    #reserve_input .reserve_input_call #slash_mark{
+        display: inline-block;
+    }
+
+    #reserve_input .reserve_input_time{
+        margin-top: 20px;
+    }
+
+    #reserve_input .reserve_input_time select{
+        display: block;
+        width: 73%;
+        height: 40px;
+
+    }
+
+    #reserve_input .reserve_input_area{
+        margin-top: 20px;
+    }
+
+    #reserve_input .reserve_input_area select{
+        display: block;
+        width: 73%;
+        height: 40px;
+    }
+
+    #reserve_input .reserve_input_req{
+        margin-top: 20px;
+    }
+
+    #reserve_input .reserve_input_req input{
+        display: block;
+        width: 73%;
+        height: 40px;
+    }
+
+    #reserve_input .reserve_chck{
+        display: block;
+        margin-top: 20px;
+    }
+
+    #reserve_input .reserve_chck input{
+        display: inline-block;
+        width: 17px;
+        height: 17px;
+    }
+
+
+    #reserve_input .reserve_chck p{
+        display: inline-block;
+        width: 70%;
+        font-size: 13px;
+        line-height: 15px;
+        text-align: vertical;
+        position: relative;
+        top: 3px;
+        left: 3px;
+    }
+
+    #reserve_input .reserve_chck a{
+        display: inline-block;
+        font-size: 13px;
+    }
+
+
+    .reserve_submit{
+        display: block;
+        border: none;
+        width: 50%;
+        height: 44px;
+        background-color: #172f50;
+        color: #ffffff;
+        border-radius: 5px;
+        margin: 25px 30px 20px 30px;
+        cursor: pointer;
+        text-align: center;
+        padding: 10px;
+    }
+    
+     .reserve_submit2{
+        display: block;
+        border: none;
+        width: 50%;
+        height: 44px;
+        background-color: #babbbd;
+        color: #ffffff;
+        border-radius: 5px;
+        margin: 25px 30px 20px 30px;
+        cursor: pointer;
+        text-align: center;
+        padding: 10px;
+    }
+
+    .reserve_submit:focus{
+        outline: none;
+    }
+    
+     .reserve_submit2:focus{
+        outline: none;
+    }
+    
+    .reserve_agree{
+		display:flex;
+    }
+    
+    .agree_check{
+    	margin: 12px 12px 12px 12px;
+    }
+    .reserve_p{
+    	margin: -4px 0px 0px 6px;
+    	width:70%;
+    	font-size:13px;
+    }
+    
+    .reserve_p_a{
+    	font-size:13px;
+    }
+    
+    .showroomS{
+    	padding-right: 10px;
+    }

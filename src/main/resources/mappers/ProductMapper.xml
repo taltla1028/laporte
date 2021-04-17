@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ProductMapper">
+
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="productMap"
+		type="com.project.laporte.model.Product">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="prodno" column="prodno" />
+		<result property="name" column="name" />
+		<result property="price" column="price" />
+		<result property="saleprice" column="saleprice" />
+		<result property="stock" column="stock" />
+		<result property="display" column="display" />
+		<result property="color" column="color" />
+		<result property="size" column="size" />
+		<result property="adminnote" column="adminnote" />
+		<result property="detailnote" column="detailnote" />
+		<result property="detailsize" column="detailsize" />
+		<result property="catno2" column="catno2" />
+		<result property="group" column="group" />
+		<result property="regdate" column="regdate" />
+		<result property="editdate" column="editdate" />
+		<result property="catname1" column="catname1" />
+		<result property="catname2" column="catname2" />
+		<result property="catno1" column="catno1" />
+		<result property="fileUrl" column="fileUrl" />
+	</resultMap>
+
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="firstimgMap"
+		type="com.project.laporte.model.Firstimg">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="prodno" column="prodno" />
+		<result property="fieldName" column="fieldName" />
+		<result property="originName" column="originName" />
+		<result property="contentType" column="contentType" />
+		<result property="fileSize" column="fileSize" />
+		<result property="filePath" column="filePath" />
+		<result property="fileUrl" column="fileUrl" />
+		<result property="thumbnailPath" column="thumbnailPath" />
+		<result property="thumbnailUrl" column="thumbnailUrl" />
+	</resultMap>
+
+	<!-- Beans 클래스의 객체이름(id)과 클래스이름(type)을 명시한다. -->
+	<resultMap id="detailimgMap"
+		type="com.project.laporte.model.DetailImg">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="detailimgno" column="detailimgno" />
+		<result property="prodno" column="prodno" />
+		<result property="fieldName" column="fieldName" />
+		<result property="orginName" column="originName" />
+		<result property="contentType" column="contentType" />
+		<result property="fileSize" column="fileSize" />
+		<result property="filePath" column="filePath" />
+		<result property="fileUrl" column="fileUrl" />
+	</resultMap>
+
+	<!-- 단일행 조회를 위한 기능 정의 -->
+	<select id="selectItem"
+		parameterType="com.project.laporte.model.Product"
+		resultMap="productMap">
+		SELECT prodno, name, price, saleprice, stock, display, color, size,
+		adminnote, detailsize, detailnote,
+		c.catno2, `group`, catname2, c.catno1
+		FROM product p
+		INNER JOIN prod_category2 c
+		ON p.catno2 = c.catno2
+		WHERE prodno=#{prodno}
+	</select>
+
+	<!-- 다중행 조회를 위한 기능 정의 -->
+	<select id="selectList"
+		parameterType="com.project.laporte.model.Product"
+		resultMap="productMap">
+		SELECT * FROM product
+	</select>
+
+	<!-- 다중행 조회를 위한 기능 정의 -->
+	<select id="selectListAllInfo"
+		parameterType="com.project.laporte.model.Product"
+		resultMap="productMap">
+		SELECT p.prodno, p.name, p.price, p.stock, p.display, p.catno2,
+		p.`group`, f.thumbnailUrl
+		FROM product p
+		INNER JOIN firstimg f ON f.prodno=p.prodno
+		<where>
+			<if test="catno2 !=0">AND catno2 = #{catno2}</if>
+			<if test="name != null">AND p.name LIKE concat('%', #{name}, '%')</if>
+			<if test="prodno !=0">AND p.prodno = #{prodno}</if>
+			<if test="stock != 0">AND #{stock} >= stock</if>
+			<if test="group != null">AND p.`group` LIKE concat('%', #{group}, '%')</if>
+			<if test="display != null and display !='' ">AND display = #{display}</if>
+		</where>
+
+		<if test="listCount > 0">
+			LIMIT #{offset},#{listCount}
+		</if>
+
+	</select>
+
+	<!-- 데이터 저장을 위한 기능 정의 -->
+	<insert id="insertItem"
+		parameterType="com.project.laporte.model.Product"
+		useGeneratedKeys="true" keyProperty="prodno">
+		INSERT INTO product(name, price
+		<if test='saleprice>0'>
+			, saleprice
+		</if>
+		, stock, display, color
+		<if test="size !=''">
+			, size
+		</if>
+		<if test="adminnote !=''">
+			, adminnote
+		</if>
+		,detailnote, detailsize, catno2
+		<if test="group !=''">
+			, `group`
+		</if>
+		, regdate, editdate)
+		VALUES(#{name}, #{price}
+		<if test='saleprice>0'>
+			,#{saleprice}
+		</if>
+		, #{stock}, #{display}, #{color}
+		<if test="size !=''">
+			, #{size}
+		</if>
+		<if test="adminnote !=''">
+			, #{adminnote}
+		</if>
+		,#{detailnote}, #{detailsize}, #{catno2}
+		<if test="group !=''">
+			, #{group,jdbcType=VARCHAR}
+		</if>
+		, now(), now())
+	</insert>
+
+	<!-- 데이터 삭제를 위한 기능 정의 -->
+	<delete id="deleteItem"
+		parameterType="com.project.laporte.model.Product">
+		DELETE FROM product WHERE prodno=#{prodno}
+	</delete>
+
+	<!-- 데이터 갱신을 위한 기능 정의 -->
+	<update id="updateItem"
+		parameterType="com.project.laporte.model.Product">
+		UPDATE product SET name=#{name}, price=#{price}
+		<if test='saleprice>0'>
+			, saleprice=#{saleprice}
+		</if>
+		, stock=#{stock}, display=#{display}
+		, color=#{color}
+		<if test="size !=''">
+			, size=#{size}
+		</if>
+		<if test="adminnote !=''">
+			, adminnote=#{adminnote}
+		</if>
+		, detailnote=#{detailnote}, detailsize=#{detailsize}
+		, catno2=#{catno2}
+		<choose>
+
+			<when test="group =='' ">
+				, `group`=null
+			</when>
+
+			<otherwise>
+				, `group`=#{group}
+			</otherwise>
+
+		</choose>
+		, editdate=now()
+		WHERE prodno=#{prodno};
+	</update>
+
+	<!-- 대표 이미지 데이터 저장을 위한 기능 정의 -->
+	<insert id="insertImgItem"
+		parameterType="com.project.laporte.model.Firstimg">
+		INSERT INTO firstimg(
+		prodno, fieldName, originName, contentType, fileSize, filePath, fileUrl,
+		thumbnailPath ,thumbnailUrl
+		)VALUES(
+		#{prodno}, #{fieldName}, #{originName}, #{contentType}, #{fileSize},
+		#{filePath}, #{fileUrl}, #{thumbnailPath},
+		#{thumbnailUrl});
+	</insert>
+
+	<!-- 대표 이미지 데이터 조회를 위한 기능 정의 -->
+	<select id="selectImgItem"
+		parameterType="com.project.laporte.model.Firstimg"
+		resultMap="firstimgMap">
+		SELECT * FROM firstimg WHERE prodno=#{prodno};
+	</select>
+
+
+	<!-- 대표 이미지 데이터 수정을 위한 기능 정의 -->
+	<update id="updateImgItem"
+		parameterType="com.project.laporte.model.Firstimg">
+		UPDATE firstimg SET fieldName=#{fieldName}, originName=#{originName},
+		contentType=#{contentType},
+		fileSize=#{fileSize}, filePath=#{filePath},
+		fileUrl=#{fileUrl}, thumbnailPath=#{thumbnailPath}, thumbnailUrl=#{thumbnailUrl} WHERE
+		prodno=#{prodno}
+	</update>
+
+	<!-- 대표 이미지 데이터 삭제를 위한 기능 정의 -->
+	<delete id="deleteImgItem"
+		parameterType="com.project.laporte.model.Firstimg">
+		Delete FROM firstimg WHERE prodno=#{prodno}
+	</delete>
+
+	<!-- 상세 이미지 데이터 저장을 위한 기능 정의 -->
+	<insert id="insertDetailImg"
+		parameterType="com.project.laporte.model.DetailImg"
+		useGeneratedKeys="true" keyProperty="detailimgno">
+		INSERT INTO detailimg(
+		prodno, fieldName, originName, contentType, fileSize, filePath, fileUrl
+		)VALUES(
+		#{prodno}, #{fieldName}, #{orginName}, #{contentType}, #{fileSize}, #{filePath},
+		#{fileUrl})
+	</insert>
+
+	<!-- 상세 이미지 데이터 조회를 위한 기능 정의 -->
+	<select id="selectDetailImg"
+		parameterType="com.project.laporte.model.DetailImg"
+		resultMap="detailimgMap">
+		SELECT * FROM detailimg WHERE prodno=#{prodno}
+	</select>
+
+	<!-- 상세 이미지 데이터 개별 삭제를 위한 기능 정의 -->
+	<delete id="deleteDetailImg"
+		parameterType="com.project.laporte.model.DetailImg">
+		DELETE FROM detailimg WHERE detailimgno=#{detailimgno}
+	</delete>
+
+	<!-- 상품 삭제시 참조하는 상세 이미지 삭제 기능 정의 -->
+	<delete id="deleteProductImg"
+		parameterType="com.project.laporte.model.DetailImg">
+		DELETE FROM detailimg WHERE prodno=#{prodno}
+	</delete>
+
+	<!-- 카테고리 이름 조회 기능 -->
+	<select id="selectcategory"
+		resultType="com.project.laporte.model.Product" resultMap="productMap">
+		SELECT
+		c1.catname1 AS `catname1`, c2.catname2 AS `catname2`
+		FROM product p
+		INNER JOIN prod_category2 c2 ON p.catno2=c2.catno2
+		INNER JOIN
+		prod_category1 c1 ON c1.catno1=c2.catno1
+		WHERE prodno=#{prodno} AND
+		p.catno2=#{catno2}
+	</select>
+
+	<!-- 유사한 제품 목록 리스트 조회 기능 -->
+	<select id="selectSimilarList"
+		resultType="com.project.laporte.model.Product" resultMap="productMap">
+		SELECT
+		p.prodno, p.name, p.size, p.color, p.catno2, p.price, p.saleprice,
+		`group`, f.fileUrl
+		FROM product p
+		INNER JOIN firstimg f ON p.prodno=f.prodno
+		WHERE
+		catno2=#{catno2} AND p.display = 'Y'
+	</select>
+
+	<select id="selectCountAllAdmin"
+		parameterType="com.project.laporte.model.Product" resultType="int">
+		SELECT COUNT(*) FROM product p
+		INNER JOIN firstimg f ON p.prodno=f.prodno
+		<where>
+			<if test="catno2 !=0">AND catno2 = #{catno2}</if>
+			<if test="name != null">AND p.name LIKE concat('%', #{name}, '%')</if>
+			<if test="prodno !=0">AND p.prodno = #{prodno}</if>
+			<if test="stock != 0">AND #{stock} >= stock</if>
+			<if test="group != '' and group != null">AND p.`group` LIKE concat('%', #{group}, '%')</if>
+			<if test="display != null and display !='' ">AND display = #{display}</if>
+		</where>
+	</select>
+</mapper>

@@ -1,0 +1,12 @@
+{
+    "name":"홍길동",
+    "birthdate":"19910101",
+    "gender":"M",
+    "tel":"01012345678",
+    "email":"gildong@gmail.com",
+    "id":"gildong",
+    "pw":"123qwe!@#",
+    "address":"서울 서초구 1303-37",
+    "address_detail": "서초W타워 13층",
+    "address_post" : "06611"
+}

@@ -1,0 +1,12 @@
+package com.project.laporte.model;
+
+import lombok.Data;
+
+@Data
+public class Fa_category2 {
+	
+	private int catno1;
+	private int catno2;
+	private String catname;
+
+}

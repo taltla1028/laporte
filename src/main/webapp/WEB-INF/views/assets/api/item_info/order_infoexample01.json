@@ -1,0 +1,12 @@
+{
+    "iSellno" : "171857319",
+    "condition" : "진행중",
+	"date" : "2020-12-22 18:03",
+    "name" : "홍 길동",
+    "address" : "서울 서초구 서초동 1303-37 13층",
+    "email" : "ezen@ezen.com",
+    "payment" : "신용카드",
+    "price" : "18,600",
+    "deliveryprice" : "50,000",
+    "totalprice" : "68,600"
+}

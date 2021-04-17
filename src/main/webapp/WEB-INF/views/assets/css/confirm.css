@@ -1,0 +1,129 @@
+@charset "UTF-8";
+
+	 
+	.confirm_table{
+	  font-size:13px;
+	  width:100%;
+	  border: 1px solid #c0c0c0;
+	  border-collapse:collapse;
+	}
+	
+	.confirm_th{
+		font-weight:600;
+		background:#e5e5e5;
+		text-align: center;
+		padding-top:3px;
+		height:36px;
+		width:60px;
+	  	border: 1px solid #c0c0c0;
+	  	
+	}
+	
+	.confirm_td{
+	  font-weight:400;
+	  padding-top:3px;
+	  height:36px;
+	  width:60px;
+	  border: 1px solid #c0c0c0;
+	  padding-left:3px;
+	
+	}
+	
+	.confirm_tab{
+	width:100%;
+	height:54px;
+	background:#eeeeee;
+	}
+	
+	.confirm_tab_ul{
+	display:flex;
+	padding-top: 10px;
+	}
+	
+	.confirm_tab_ul_li.active{
+	padding-top:10px;
+	width:50%;
+	height:58px;
+	border-radius:9px;
+	background:#fff;
+	text-align: center;
+	}
+	.confirm_tab_ul_li{
+	padding-top:10px;
+	width:50%;
+	height:58px;
+	text-align: center;
+	}
+	
+	.confirem_tab_ul_li_a{
+	color:#333;
+
+	font-weight:600;
+	}
+	
+	.confirm_content{
+	padding:20px 8px 0;
+	}
+	
+	.confirm_content_h3{
+	font-size: 18px;
+	padding-bottom:13px;
+	}
+	
+	.confirm_txt{
+	padding:20px 10px 0;
+	overflow:hidden;
+	}
+	
+	.confirm_txt p{
+	font-size:14px;
+	padding-bottom:20px;
+	}
+	
+	.confirm_txt_icon{
+	display:block;
+	width:15px;
+	height:15px;
+	float:left;
+	margin:9px 5px 0 0;
+	background-image:url(../img/laporte_clipping.png);
+    background-repeat: no-repeat;
+    background-size:274px 154px;
+    background-position:-68px -90px;
+	}
+	
+	.confirm_button{
+	display:flex;
+	justify-content:center;
+	}
+	
+	.confirm_button_a{
+	text-align: center;
+	color:#fff;
+	width:105px;
+	height:44px;
+	border-radius:28px;
+	background:#b1b1b1;
+	margin-right:14px;
+	padding-top:10px;
+	}
+	
+	.confirm_button_a2{
+	text-align: center;
+	color:#fff;
+	width:105px;
+	height:44px;
+	border-radius:28px;
+	background:#172f50;
+	padding-top:10px;
+	}
+	
+	.confirm_button_a:hover{
+	
+	background:#dedede;
+	}
+	
+	.confirm_button_a2:hover{
+	background:#33598c;
+	}
+	

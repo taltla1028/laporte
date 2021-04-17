@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="ProductListMapper">
+
+	<resultMap id="productListMap"
+		type="com.project.laporte.model.Product">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="prodno" column="prodno" />
+		<result property="name" column="name" />
+		<result property="price" column="price" />
+		<result property="saleprice" column="saleprice" />
+		<result property="stock" column="stock" />
+		<result property="display" column="display" />
+		<result property="color" column="color" />
+		<result property="size" column="size" />
+		<result property="adminnote" column="adminnote" />
+		<result property="detailnote" column="detailnote" />
+		<result property="detailsize" column="detailsize" />
+		<result property="catno2" column="catno2" />
+		<result property="group" column="group" />
+		<result property="regdate" column="regdate" />
+		<result property="editdate" column="editdate" />
+		<result property="catname1" column="catname1" />
+		<result property="catname2" column="catname2" />
+		<result property="catno1" column="catno1" />
+		<result property="thumbnailUrl" column="thumbnailUrl" />
+
+	</resultMap>
+
+	<resultMap id="firstimgMap"
+		type="com.project.laporte.model.Firstimg">
+		<!-- Beans의 멤버변수(property)이름과 대상 테이블의 컬럼(column)을 연결한다. -->
+		<result property="prodno" column="prodno" />
+		<result property="fieldName" column="fieldName" />
+		<result property="originName" column="originName" />
+		<result property="contentType" column="contentType" />
+		<result property="fileSize" column="fileSize" />
+		<result property="filePath" column="filePath" />
+		<result property="fileUrl" column="fileUrl" />
+		<result property="thumbnailPath" column="thumbnailPath" />
+		<result property="thumbnailUrl" column="thumbnailUrl" />
+	</resultMap>
+
+
+
+	<select id="selectallfirstList"
+		resultType="com.project.laporte.model.Firstimg"
+		resultMap="firstimgMap">
+		SELECT * FROM firstimg
+	</select>
+
+	<select id="selectallproductList"
+		parameterType="com.project.laporte.model.Product"
+		resultMap="productListMap">
+
+		SELECT p.name, p.prodno, p.price, p.saleprice, p.color, p.size,
+		`group`, f.thumbnailUrl,
+		c.catno1, c.catno2
+		FROM product p
+		INNER JOIN firstimg f ON p.prodno=f.prodno
+		INNER JOIN prod_category2 c ON c.catno2=p.catno2
+		<where>
+			<if test="catno1!=0">catno1 = #{catno1}</if>
+			<if test='catno2 != 0'>AND p.catno2 = #{catno2}</if>
+			<if test="name!=null and name!=''">name LIKE concat('%', #{name}, '%')</if>
+		</where>
+		ORDER BY prodno DESC
+		<if test="listCount > 0">
+			LIMIT #{offset},#{listCount}
+		</if>
+	</select>
+
+	<select id="selectCountAll"
+		parameterType="com.project.laporte.model.Product" resultType="int">
+		SELECT COUNT(*) FROM product p
+		INNER JOIN prod_category2 c ON c.catno2=p.catno2
+		WHERE catno1 = #{catno1}
+		<if test='catno2 != 0'>AND p.catno2 = #{catno2}</if>
+	</select>
+</mapper>
+
